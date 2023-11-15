@@ -1,20 +1,57 @@
-% $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
-% Do not modify the above lines!
-%
-% This is an auxiliary file used by the 'biblatex' package.
-% This file may safely be deleted. It will be recreated by
-% biber as required.
-%
-\begingroup
-\makeatletter
-\@ifundefined{ver@biblatex.sty}
-  {\@latex@error
-     {Missing 'biblatex' package}
-     {The bibliography requires the 'biblatex' package.}
-      \aftergroup\endinput}
-  {}
-\endgroup
+\begin{thebibliography}{1}
 
-\endinput
+\bibitem{kidscount}
+{Annie E. Casey Foundation}.
+\newblock {KIDS COUNT Data Center}.
+\newblock
+  \url{https://datacenter.aecf.org/data/tables/99-total-population-by-child-and-adult-populations#detailed/1/any/false/1095,2048,574,1729,37,871,870,573,869,36/39,40,41/416,417},
+  Accessed 2023.
+\newblock Data retrieved from KIDS COUNT Data Center website.
 
+\bibitem{ElFadily}
+Michele Cal{\`\i}, Sanaa ElFadily, and Abdelilah Kaddar.
+\newblock Modeling and mathematical analysis of labor force evolution.
+\newblock {\em Modelling and Simulation in Engineering}, 2019:2562468, 2019.
+
+\bibitem{FRED}
+{Federal Reserve Bank of St. Louis}.
+\newblock {Federal Reserve Economic Data}.
+\newblock \url{https://fred.stlouisfed.org/series/JTSLDR}, Accessed 2023.
+\newblock Data retrieved from the Federal Reserve Economic Data (FRED) website.
+
+\bibitem{MacroTrends}
+{MacroTrends LLC}.
+\newblock {MacroTrends}.
+\newblock
+  \url{https://www.macrotrends.net/countries/USA/united-states/population-growth-rate},
+  Accessed 2023.
+\newblock Data retrieved from MacroTrends website.
+
+\bibitem{maestas}
+Nicole Maestas.
+\newblock Back to work: Expectations and realizations of work after retirement.
+\newblock {\em Journal of Human Resources}, 45(3):718--748, 2010.
+
+\bibitem{ssa}
+{Social Security Administration}.
+\newblock {Number of beneficiaries receiving benefits on December 31,
+  1970-2022}.
+\newblock \url{https://www.ssa.gov/oact/STATS/OASDIbenies.html}, Accessed 2023.
+\newblock Data retrieved from Social Security Administration website.
+
+\bibitem{BLS}
+{U.S. Bureau of Labor Statistics}.
+\newblock {HOUSEHOLD DATA ANNUAL AVERAGES 1. Employment status of the civilian
+  noninstitutional population, 1952 to date}.
+\newblock \url{https://www.bls.gov/cps/cpsaat01.pdf}, Accessed 2023.
+\newblock Data retrieved from the Bureau of Labor Statistics website.
+
+\bibitem{usafacts}
+{USAFacts}.
+\newblock {Deaths Per 100,000 People}.
+\newblock
+  \url{https://usafacts.org/data/topics/people-society/health/longevity/mortality-rate/},
+  Accessed 2023.
+\newblock Data retrieved from USAFacts website.
+
+\end{thebibliography}

@@ -53,7 +53,7 @@ our research aims to contribute valuable insights for informing strategic polici
 
 \subsection{Labor Force, Unemployed, and Retired}
 
-We begin by building off the work of (cite ElFalidy). In their work, ElFadily et. al. proposed a model
+We begin by building off the work of ~\cite{ElFadily}. In their work, ElFadily et. al. proposed a model
  representing the labor force and unemployed populations. They begin by defining their equations as
 
 \begin{align}
@@ -91,9 +91,9 @@ We can then define our new equations as
 
 \begin{align}
     \begin{split}
-        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\;- \left(\frac{\Sigma}{L_{\tau} + U_{\tau}}\right) L + \omega\left(\frac{\Sigma}{L_{\tau} + U_{\tau}}\right) R},\\
-        \frac{dU}{dt} &= \rho\left(1 - \frac{L_{\tau} + U_{\tau}}{N_c} \right)L_{\tau} + \sigma L -(\mu + \gamma)U,  \\
-        \frac{dR}{dt} &= {\color{red}\left(\frac{\Sigma}{L_{\tau} + U_{\tau}}\right) L - \omega\left(\frac{\Sigma}{L_{\tau} + U_{\tau}}\right) R \; - \, \mu R},
+        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\;- \left(\frac{\Sigma}{L + U}\right) L + \omega\left(\frac{\Sigma}{L + U}\right) R},\\
+        \frac{dU}{dt} &= \rho\left(1 - \frac{L + U}{N_c} \right)L + \sigma L -(\mu + \gamma)U,  \\
+        \frac{dR}{dt} &= {\color{red}\left(\frac{\Sigma}{L + U}\right) L - \omega\left(\frac{\Sigma}{L + U}\right) R \; - \, \mu R},
     \end{split}
 \end{align}
 
@@ -122,8 +122,64 @@ into the full-time workforce. We can then define our new initial conditions as:
         (L(\theta),U(\theta), R(\theta)) &= (\varphi_1(\theta), \varphi_2(\theta), \varphi_3(\theta)), \quad \theta \in [-\tau,0], \\
     \end{split}
 \end{align}
-where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$.
+where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nuanced dynamics into our model, we introduce the following terms and elucidate their significance within the equations:
 
+\begin{itemize}
+    \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: This term captures the dynamic interplay of individuals retiring from the workforce each time step. By leveraging $\Sigma$, the annual number of retirees, and $L + U$, the total workforce population, we calculate the percentage of individuals retiring at each time step. Multiplying this by $L$, the number of individuals actively engaged in the workforce, yields the precise count of those retiring, excluding unemployed individuals due to their non-participation in this realistic scenario.
+
+    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: This term accounts for individuals retiring and subsequently re-entering the workforce. The parameter $\omega$ denotes the rate at which retired individuals seamlessly transition back to full-time work. By multiplying $\omega R$—the expected number of retired individuals returning to the workforce—by $\frac{\Sigma}{L + U}$, we ascertain the percentage of recent retirees contributing to the workforce each time step.
+
+    \item $-\mu R$: This term represents the natural attrition of retired individuals through mortality each time step. Its presence acknowledges the inevitable and inherent departure of individuals from the system due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
+\end{itemize}
+
+
+We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
+
+\begin{itemize}
+    \item $\sigma = 0.013905$: We derived this value by analyzing comprehensive data on total layoffs and discharges in the United States from 2000 to 2023, as documented by the Federal Reserve Economic Data (FRED) \cite{FRED}. The calculated average resulted in $\sigma = 0.013905$.
+    \item $\rho = 0.014577$: The maximum growth rate, denoted as $\rho$, was determined by examining an Excel spreadsheet provided by MacroTrends \cite{MacroTrends}. After averaging the growth rates from 2000 to 2022, we incorporated three standard deviations to arrive at $\rho = 0.014577$.
+    \item $\gamma = 0.6062$: The average employment rate from 2000 to 2022, obtained from the Bureau of Labor Statistics \cite{BLS}, led to the computation of $\gamma = 0.6062$.
+    \item $\mu = 0.008498$: Derived from an analysis of mortality data from 2000 to 2022 \cite{usafacts}, the mortality rate was calculated by taking the average number of deaths per 100,000 people. This resulted in $\mu = 0.008498$.
+    \item $N_c = 260,000,000$: The population of individuals aged 18 and above in the United States in 2022 was calculated to be $260,000,000$, as reported by Kids Count \cite{kidscount}.
+    \item $\Sigma = 775,045$: The annual number of retirees in the United States, determined by examining Social Security Administration data from 2000 to 2021 \cite{ssa}, was calculated using the formula:
+    \[
+        \Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})
+    \]
+    where $x_i$ is the number of retirees in year $i$. This resulted in $\Sigma = 775,045$.
+    \item $\omega = 0.063$: The rate at which retired individuals re-enter the full-time workforce, denoted as $\omega$, was identified as 6.3\% or $0.063$ based on research by Maestas \cite{maestas}, resulting in $\omega = 0.192$.
+\end{itemize}
+
+We began testing our model by running it for 60 years with differing initial conditions.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/results_lur_1.png}
+    \caption{Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$. These
+             numbers reflect the current numbers for the United States. As you can see, the model very quickly
+             reaches an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting
+             the expected population growth of the United States.}
+    \label{fig:results_lur_1}
+\end{figure}
+
+To test the robustness of our model, we ran it with different initial conditions. We decreased the number in the labor force, increased the number of 
+unemployed, and decreased the number of retired. We then ran the model for 60 years.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/results_lur_2.png}
+    \caption{Initial conditions: $L(0) = 100,000,000$, $U(0) = 50,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
+    \label{fig:results_lur_1}
+\end{figure}
+
+We ran our model, once again, against a different set of initial conditions. This time, we significantly decreased the number of people in the occupied
+labor force, significantly increased the number of unemployed, and moderately decreased the number of retired. We then ran the model for 60 years.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/results_lur_3.png}
+    \caption{Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
+    \label{fig:results_lur_1}
+\end{figure}
 
 
 
@@ -132,17 +188,12 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$.
 
 \section{Related Work}
 
-Here is a cool graph. Please accept it as nothing but the truth. This is a change!
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/vol4_proj_pic.png}
-    \caption{A cool graph}
-    \label{fig:cool_graph}
-\end{figure}
 
 % Rest of your document goes here
-% \printbibliography
+
+\newpage 
+\bibliographystyle{plain}
+\bibliography{bibliography}
 
 
 \end{document}
