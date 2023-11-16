@@ -51,7 +51,11 @@ our research aims to contribute valuable insights for informing strategic polici
 
 \section{Modeling}
 
-\subsection{Labor Force, Unemployed, and Retired}
+\subsection{Theoretical Framework}
+
+(add stuff about SIR models here.)
+
+\subsection{Previous Work}
 
 We begin by building off the work of ElFadily et. al.~\cite{ElFadily}. In their work, ElFadily et. al. proposed a model
  representing the labor force and unemployed populations. They begin by defining their equations as
@@ -83,6 +87,8 @@ The parameters are defined as follows:
     \item $N_c$: population carrying capacity 
     \item $\tau$: time lag needed to contribute in the reproductive process of a new individual looking for a job
 \end{itemize}
+
+\subsection{Modifications: The Retirement Group}
  
 
 With this information in mind, we can begin to adapt this model to fit our needs. We begin by adding a third population, the retired population, $R$.
@@ -107,7 +113,7 @@ which simplify to
 \end{align}
 
 One of the first things to note from our equations is the removal of the time lag $\tau$. 
-This is because, instead of factoring in people when they are bor, we are instead factoring them
+This is because, instead of factoring in people when they are born, we are instead factoring them
 in when they turn of working age (16). This reduces unnecessary complexity in our model. Another thing to note
 is that we have added two new parameters, $\omega$ and $\Sigma$. We define $\Sigma$ to be the number of people who
 retire each year in the United States, and $\omega$ to be the rate at which retired people enter back
@@ -128,6 +134,8 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
 
     \item $-\mu R$: This term represents the natural attrition of retired individuals through mortality each time step. Its presence acknowledges the inevitable and inherent departure of individuals from the system due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
 \end{itemize}
+
+\section{Experiments}
 
 
 We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
