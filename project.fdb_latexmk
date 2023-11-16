@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex project"] 1700171843 "project.aux" "project.bbl" "project" 1700171845
+["bibtex project"] 1700173662 "project.aux" "project.bbl" "project" 1700173784
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "bibliography.bib" 1700016512 5873 827523c017d905668d3155a7c5b426cc ""
-  "project.aux" 1700171845 3673 7c7a906a5b57ec1fd223c6ff41b6678e "pdflatex"
+  "project.aux" 1700173784 3777 39a498ab42b259f3e6811f1226412f62 "pdflatex"
   (generated)
   "project.bbl"
   "project.blg"
-["pdflatex"] 1700171843 "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" "project.pdf" "project" 1700171845
-  "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" 1700171841 12053 05da645415e9d683045256ad4bd5b59f ""
+["pdflatex"] 1700173782 "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" "project.pdf" "project" 1700173784
+  "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" 1700173782 13533 244f04200ee0a8f9ba7af098c36b2a60 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -136,10 +136,10 @@
   "figures/results_lur_1.png" 1700018999 196690 38ea2f771b59e73b858953e45c12bb5e ""
   "figures/results_lur_2.png" 1700019161 224301 a1fbba12a9ea67dec6c25415ba3940bf ""
   "figures/results_lur_3.png" 1700019176 240451 7ed94cf2aa96ae31a3ecbde5e299056e ""
-  "project.aux" 1700171845 3673 7c7a906a5b57ec1fd223c6ff41b6678e "pdflatex"
-  "project.bbl" 1700171843 2126 aa1c4fe993772646b07eb545bf5dc83a "bibtex project"
-  "project.out" 1700171845 966 0c2bf88a4f5a50caaa936d9e2ea75efc "pdflatex"
-  "project.tex" 1700171841 12053 05da645415e9d683045256ad4bd5b59f ""
+  "project.aux" 1700173784 3777 39a498ab42b259f3e6811f1226412f62 "pdflatex"
+  "project.bbl" 1700173662 2126 aa1c4fe993772646b07eb545bf5dc83a "bibtex project"
+  "project.out" 1700173784 1044 7f5a2499ea4a13da446676fbee634dfc "pdflatex"
+  "project.tex" 1700173782 13533 244f04200ee0a8f9ba7af098c36b2a60 ""
   (generated)
   "project.aux"
   "project.log"
