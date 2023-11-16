@@ -53,7 +53,7 @@ our research aims to contribute valuable insights for informing strategic polici
 
 \subsection{Labor Force, Unemployed, and Retired}
 
-We begin by building off the work of ~\cite{ElFadily}. In their work, ElFadily et. al. proposed a model
+We begin by building off the work of ElFadily et. al.~\cite{ElFadily}. In their work, ElFadily et. al. proposed a model
  representing the labor force and unemployed populations. They begin by defining their equations as
 
 \begin{align}
@@ -67,8 +67,7 @@ where $L$ is the labor force, $U$ is the unemployed population, with initial con
 
 \begin{align}
     \begin{split}
-        L(0) &> 0 , \\
-        U(0) &> 0, \\
+        L(0) > 0, \quad &U(0) > 0, \\
         (L(\theta),U(\theta)) &= (\varphi_1(\theta), \varphi_2(\theta)), \quad \theta \in [-\tau,0], \\
     \end{split}
 \end{align}
@@ -116,10 +115,8 @@ into the full-time workforce. We can then define our new initial conditions as:
 
 \begin{align}
     \begin{split}
-        L(0) &> 0 , \\
-        U(0) &> 0, \\
-        R(0) &> 0, \\
-        (L(\theta),U(\theta), R(\theta)) &= (\varphi_1(\theta), \varphi_2(\theta), \varphi_3(\theta)), \quad \theta \in [-\tau,0], \\
+        L(0) > 0, \quad &U(0) > 0, \quad R(0) > 0, \\
+        (L(\theta),U(\theta), R(\theta)) &= (\varphi_1(\theta), \varphi_2(\theta), \varphi_3(\theta)), \quad \theta \in [-\tau,0],
     \end{split}
 \end{align}
 where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nuanced dynamics into our model, we introduce the following terms and elucidate their significance within the equations:
@@ -146,14 +143,14 @@ We now give the specific values for hyperparameters for our model and how we cam
         \Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})
     \]
     where $x_i$ is the number of retirees in year $i$. This resulted in $\Sigma = 775,045$.
-    \item $\omega = 0.063$: The rate at which retired individuals re-enter the full-time workforce, denoted as $\omega$, was identified as 6.3\% or $0.063$ based on research by Maestas \cite{maestas}, resulting in $\omega = 0.192$.
+    \item $\omega = 0.063$: The rate at which retired individuals re-enter the full-time workforce, denoted as $\omega$, was identified as 6.3\% or $0.063$ based on research by Maestas \cite{maestas}, resulting in $\omega = 0.063$.
 \end{itemize}
 
 We began testing our model by running it for 60 years with differing initial conditions.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/results_lur_1.png}
+    \includegraphics[width=.5\textwidth]{figures/results_lur_1.png}
     \caption{Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$. These
              numbers reflect the current numbers for the United States. As you can see, the model very quickly
              reaches an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting
@@ -166,7 +163,7 @@ unemployed, and decreased the number of retired. We then ran the model for 60 ye
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/results_lur_2.png}
+    \includegraphics[width=.5\textwidth]{figures/results_lur_2.png}
     \caption{Initial conditions: $L(0) = 100,000,000$, $U(0) = 50,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
     \label{fig:results_lur_1}
 \end{figure}
@@ -176,7 +173,7 @@ labor force, significantly increased the number of unemployed, and moderately de
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/results_lur_3.png}
+    \includegraphics[width=.5\textwidth]{figures/results_lur_3.png}
     \caption{Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
     \label{fig:results_lur_1}
 \end{figure}
