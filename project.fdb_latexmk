@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex project"] 1700333816 "project.aux" "project.bbl" "project" 1700333817
+["bibtex project"] 1700339507 "project.aux" "project.bbl" "project" 1700339509
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "bibliography.bib" 1700016512 5873 827523c017d905668d3155a7c5b426cc ""
-  "project.aux" 1700333817 4148 84f4bcd40ad1bfc596425ebc276bdf2e "pdflatex"
+  "project.aux" 1700339509 4512 8c836d90d7c00d14aeadab4d6c23e0a8 "pdflatex"
   (generated)
   "project.bbl"
   "project.blg"
-["pdflatex"] 1700333817 "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" "project.pdf" "project" 1700333817
-  "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" 1700333815 14725 67bb381d8a5309729ab8a68a0636c89e ""
+["pdflatex"] 1700339507 "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" "project.pdf" "project" 1700339509
+  "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" 1700339505 16337 001a5d50a7c2875100de280470dc9bd0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -129,13 +129,15 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1657121839 2826438 d9a24ea19c8bad2fba92bc4c553da93c ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "figures/results_lur_1.png" 1700333433 46241 2c8f708587057a23f095df63e03c04bc ""
-  "figures/results_lur_2.png" 1700333715 58886 8dde000d5403395e4149590e4846c1bb ""
-  "figures/results_lur_3.png" 1700333738 62377 4ae245cef787a404840d5bac7bd4e635 ""
-  "project.aux" 1700333817 4148 84f4bcd40ad1bfc596425ebc276bdf2e "pdflatex"
-  "project.bbl" 1700333817 2126 aa1c4fe993772646b07eb545bf5dc83a "bibtex project"
-  "project.out" 1700333817 1603 bac19a6df1d9b65cb823cfe4164910fb "pdflatex"
-  "project.tex" 1700333815 14725 67bb381d8a5309729ab8a68a0636c89e ""
+  "figures/results_lur_1.png" 1700334974 105290 28ff59c3ec55772ecae792fc2adb8b59 ""
+  "figures/results_lur_2.png" 1700334985 134531 f79cca4bea7cc10b1959c6b1fabae128 ""
+  "figures/results_lur_3.png" 1700335005 143326 204c2bd43f06629dba50ae987d8fc2cd ""
+  "figures/results_lur_4.png" 1700335998 137599 d208c28cc2550fc4a223f3d6c30dda3c ""
+  "figures/results_lur_5.png" 1700339092 301203 a097fc5fe28e60502657c7a96acfff2a ""
+  "project.aux" 1700339509 4512 8c836d90d7c00d14aeadab4d6c23e0a8 "pdflatex"
+  "project.bbl" 1700339507 2126 aa1c4fe993772646b07eb545bf5dc83a "bibtex project"
+  "project.out" 1700339509 1603 bac19a6df1d9b65cb823cfe4164910fb "pdflatex"
+  "project.tex" 1700339505 16337 001a5d50a7c2875100de280470dc9bd0 ""
   (generated)
   "project.aux"
   "project.log"

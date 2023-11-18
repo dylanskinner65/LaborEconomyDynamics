@@ -176,26 +176,26 @@ We now give the specific values for hyperparameters for our model and how we cam
     where $x_i$ is the number of retirees in year $i$. This resulted in $\Sigma = 775,045$.
     \item $\omega = 0.063$: The rate at which retired individuals re-enter the full-time workforce, denoted as $\omega$, was identified as 6.3\% or $0.063$ based on research by Maestas \cite{maestas}, resulting in $\omega = 0.063$.
 \end{itemize}
-We began testing our model by running it for 60 years with differing initial conditions (see figure~\ref{fig:results_lur_1}). We began by using the current numbers for the United States. As you can see,
-the model very quickly reaches an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting the expected population growth of the United States.
+
+We began testing our model by running it for 60 years with the current numbers for the United States (see figure~\ref{fig:results_lur_1}). As you can see,
+the model very quickly reaches what appears to be an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting the expected population growth of the United States.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/results_lur_1.png}
-    \caption{Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$. These
-             numbers reflect the current numbers for the United States. As you can see, the model very quickly
-             reaches an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting
-             the expected population growth of the United States.}
+    \caption{Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$.}
     \label{fig:results_lur_1}
 \end{figure}
 
-To test the robustness of our model, we ran it with different initial conditions. We decreased the number in the labor force, increased the number of 
-unemployed, and decreased the number of retired. We then ran the model for 60 years (see figure~\ref{fig:results_lur_2}).
+To test the robustness of our model, we ran it with different initial conditions that do not represent the current situation in the United States. 
+We first decreased the number in the labor force, increased the number of unemployed, and decreased the number of retired. We made these changes rather conservative
+by only slightly perturbing the real numbers. We then ran the model for 60 years (see figure~\ref{fig:results_lur_2}).
+Parallel to figure 1, we can see that the model still reaches an equilibrium, despite the initial conditions being skewed from their true values.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/results_lur_2.png}
-    \caption{Initial conditions: $L(0) = 100,000,000$, $U(0) = 50,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
+    \caption{Initial conditions: $L(0) = 100,000,000$, $U(0) = 50,000,000$, $R(0) = 10,000,000$.}
     \label{fig:results_lur_2}
 \end{figure}
 
@@ -203,13 +203,41 @@ unemployed, and decreased the number of retired. We then ran the model for 60 ye
 
 
 We ran our model, once again, against a different set of initial conditions. This time, we significantly decreased the number of people in the occupied
-labor force, significantly increased the number of unemployed, and moderately decreased the number of retired. We then ran the model for 60 years (see figure~\ref{fig:results_lur_3}).
+labor force, significantly increased the number of unemployed (ensuring that the number of unemployed was much greater than the number of people in the labor force), and moderately decreased the number of retired. We then ran the model for 60 years (see figure~\ref{fig:results_lur_3}).
+As you can see, the model still reaches an equilibrium, despite the initial conditions being heavily skewed from their true values.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/results_lur_3.png}
-    \caption{Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
+    \caption{Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$.}
     \label{fig:results_lur_3}
+\end{figure}
+
+We ran a final test, this time having the number of retired people set as greater than the number of
+people in the labor force and unemployed combined. We then ran the model for 60 years (see figure~\ref{fig:results_lur_4}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/results_lur_4.png}
+    \caption{Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.}
+    \label{fig:results_lur_4}
+\end{figure}
+
+Unlike the previous graphs, we can see that the model does not reach an equilibrium in 60 years. 
+While the number of people in the labor force rises and the number of retired people falls, 
+this chance does not appear to be significant enough to reach an equilibrium. However,
+when ran again for $T = 100$ years, we can see that the model gets closer to an equilibrium, but 
+still does not reach one. But, when ran for $T = 400$ years, we can see that the model 
+does appear to reach an equilibrium (see figure~\ref{fig:results_lur_5}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/results_lur_5.png}
+    \caption{While there are two sets of graphs here, they use the same initial conditions.
+            The only difference is how long the model was ran for. The top graph was ran for $T = 100$ years, and 
+            the bottom graph was ran for $T = 400$ years.
+            Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.}
+    \label{fig:results_lur_5}
 \end{figure}
 
 
