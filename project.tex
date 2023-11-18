@@ -1,4 +1,7 @@
-\documentclass{article}
+\documentclass[11pt]{amsart}
+%%% WARNING: Do NOT change the page size, fonts, or margins!  Penalties will apply.
+
+\usepackage{placeins} %enables \FloatBarrier, that prevents floats from going below it.
 \usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools, bm}
 \usepackage{color,comment}
 \usepackage{geometry}
@@ -16,19 +19,19 @@
 
 \begin{document}
 
+\begin{abstract}
+
+    The labor market, including the unemployment rate and the amount of workers looking for jobs, can have a large impact on the economny.
+    The more people employed means more money being spent, which in turn means more money being made. 
+    Furthermore, rise in unemployment can lead to a recession. Being able to predict the labor market can help us prepare for a recession and help us understand the economy better.
+    In this paper, we adapt an SIR model to model the amount of employed, unemployed, and retired individuals.
+    Furthermore, we use a quasi predator-prey model to illustrate the oscillation of the two industries commonly known as white-collar and blue-collar.
+    
+\end{abstract}
+
 \maketitle
 
 We give permission for this work to be shared by ACME Volume 4 instructors and anybody else who may have reasonable motivation.
-
-\begin{abstract}
-
-The labor market, including the unemployment rate and the amount of workers looking for jobs, can have a large impact on the economny.
-The more people employed means more money being spent, which in turn means more money being made. 
-Furthermore, rise in unemployment can lead to a recession. Being able to predict the labor market can help us prepare for a recession and help us understand the economy better.
-In this paper, we adapt an SIR model to model the amount of employed, unemployed, and retired individuals.
-Furthermore, we use a quasi predator-prey model to illustrate the oscillation of the two industries commonly known as white-collar and blue-collar.
-
-\end{abstract}
 
 \section{Background/Motivation}
 
@@ -139,8 +142,24 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
     \item $-\mu R$: This term represents the natural attrition of retired individuals through mortality each time step. Its presence acknowledges the inevitable and inherent departure of individuals from the system due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
 \end{itemize}
 
+\subsection{Modifications: The White-Collar and Blue-Collar Groups}
 
-\section{Experiments}
+We can further model the labor market by examining the relationship between two industries, commonly referred to as the white-collar and blue-collar industries (ADD CITATION).
+In recent years, we have seen an explosion of jobs and interest in the white-collar field, specifically in the tech industry, while the blue-collar industry has seen a decline in interest.
+This has led to an oversaturation of the white-collar industry and a scarcity of skilled workers in the blue-collar industry, which in turn has slowed growth in the white-collar industry and led to increased growth in the blue-collar industry.
+This cyclical relationship mirrors that of a predator-prey relationship, and we can model it as such.
+
+The classical predator-prey model is given by the following equations: (CITE ME PLEASE)
+
+\begin{align}
+    \begin{split}
+        \frac{dx}{dt} &= \rho x - a x y, \\
+        \frac{dy}{dt} &= -\mu y + \epsilon a x y,
+    \end{split}
+\end{align}
+
+
+\section{Results}
 
 We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
 
@@ -160,7 +179,7 @@ We now give the specific values for hyperparameters for our model and how we cam
 We began testing our model by running it for 60 years with differing initial conditions (see figure~\ref{fig:results_lur_1}). We began by using the current numbers for the United States. As you can see,
 the model very quickly reaches an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting the expected population growth of the United States.
 
-\begin{figure}[h!]
+\begin{figure}[h]
     \centering
     \includegraphics[width=.5\textwidth]{figures/results_lur_1.png}
     \caption{Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$. These
@@ -175,7 +194,7 @@ the model very quickly reaches an equilibrium. Additionally, we can see the tota
 To test the robustness of our model, we ran it with different initial conditions. We decreased the number in the labor force, increased the number of 
 unemployed, and decreased the number of retired. We then ran the model for 60 years (see figure~\ref{fig:results_lur_2}).
 
-\begin{figure}[h!]
+\begin{figure}[h]
     \centering
     \includegraphics[width=.5\textwidth]{figures/results_lur_2.png}
     \caption{Initial conditions: $L(0) = 100,000,000$, $U(0) = 50,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
@@ -187,7 +206,7 @@ unemployed, and decreased the number of retired. We then ran the model for 60 ye
 We ran our model, once again, against a different set of initial conditions. This time, we significantly decreased the number of people in the occupied
 labor force, significantly increased the number of unemployed, and moderately decreased the number of retired. We then ran the model for 60 years (see figure~\ref{fig:results_lur_3}).
 
-\begin{figure}[h!]
+\begin{figure}[h]
     \centering
     \includegraphics[width=.5\textwidth]{figures/results_lur_3.png}
     \caption{Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$. As you can see, the model still reaches an equilibrium.}
@@ -196,7 +215,7 @@ labor force, significantly increased the number of unemployed, and moderately de
 
 
 
-\section{Results}
+\section{Analysis/Conclusions}
 
 Overall, our model of the labor market shows remarkable stability. 
 We can see that, regardless of the initial conditions, the model reaches an equilibrium, 
@@ -210,10 +229,6 @@ Finally, when presented with initial populations that were flipped, the model st
 
 While harder to see with the scale on the graph, the retired population does increase over time. 
 This is because, as the population grows, more people retire and we see a slow but steady growth, as expected.
-
-
-
-\section{Related Work}
 
 
 % Rest of your document goes here
