@@ -20,12 +20,14 @@
 \begin{document}
 
 \begin{abstract}
-
+    
     The labor market, including the unemployment rate and the amount of workers looking for jobs, can have a large impact on the economny.
     The more people employed means more money being spent, which in turn means more money being made. 
     Furthermore, rise in unemployment can lead to a recession. Being able to predict the labor market can help us prepare for a recession and help us understand the economy better.
-    In this paper, we adapt an SIR model to model the amount of employed, unemployed, and retired individuals.
-    Furthermore, we use a quasi predator-prey model to illustrate the oscillation of the two industries commonly known as white-collar and blue-collar.
+    In this paper, we adapt an SIR model to characterize the dynamics of employed, unemployed, and retired individuals in the labor market. 
+    Additionally, we employ a quasi predator-prey model to illustrate the oscillatory behavior observed in the white-collar and blue-collar industries. 
+    By comparing the SIR model to the predator-prey model, we aim to enhance our understanding of the complex interactions within the labor market, 
+    providing potential insights for recession prediction and economic analysis.
     
 \end{abstract}
 
@@ -36,7 +38,7 @@ We give permission for this work to be shared by ACME Volume 4 instructors and a
 \section{Background/Motivation}
 
 One thing that is certain in life is that people will always need jobs. Not only this, but people 
-will often lose their jobs. Not only this, but people will (eventually) retire from their jobs.
+will often lose their jobs. Furthermore, people will (eventually) retire from their jobs.
 The focus of our project is modeling this situation.
 
 Our investigation navigates the intricate dynamics of employment trajectories and occupational sectors. 
@@ -144,12 +146,12 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
 
 \subsection{Modifications: The White-Collar and Blue-Collar Groups}
 
-We can further model the labor market by examining the relationship between two industries, commonly referred to as the white-collar and blue-collar industries (ADD CITATION).
+We can further model the labor market by examining the relationship between two industries, commonly referred to as the white-collar and blue-collar industries.
 In recent years, we have seen an explosion of jobs and interest in the white-collar field, specifically in the tech industry, while the blue-collar industry has seen a decline in interest.
 This has led to an oversaturation of the white-collar industry and a scarcity of skilled workers in the blue-collar industry, which in turn has slowed growth in the white-collar industry and led to increased growth in the blue-collar industry.
 This cyclical relationship mirrors that of a predator-prey relationship, and we can model it as such.
 
-The classical predator-prey model is given by the following equations: (CITE ME PLEASE)
+The classical predator-prey model is given by the following equations:
 
 \begin{align}
     \begin{split}
@@ -157,6 +159,21 @@ The classical predator-prey model is given by the following equations: (CITE ME 
         \frac{dy}{dt} &= -\mu y + \epsilon a x y,
     \end{split}
 \end{align}
+
+where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\epsilon$ are parameters. We can adapt this model to fit our needs by defining the following:
+
+\begin{align}
+    \begin{split}
+        \frac{dx}{dt} &= \rho x (1-\frac{x}{k}) - a x y, \\
+        \frac{dy}{dt} &= -\mu y + \epsilon a x y + \beta y (1-\frac{y}{C}),
+    \end{split}
+\end{align}
+
+where $x$ is the blue-collar population, and $y$ is the white-collar population. We introduce the following terms into our model.
+\begin{itemize}
+    \item $\rho x (1-\frac{x}{k})$: This term adds a carrying capacity to the "prey" population (or blue collar population). This is because, while the blue-collar industry is growing, it is not growing at an exponential rate. Instead, it is growing at a rate that is proportional to the number of blue-collar workers.
+    \item $\beta y (1-\frac{y}{C})$: This term adds a carrying capacity to the "predator" population (or white collar population). This is because the white-collar industry, unlike a traditional predator, cannot grow indefinitely. Instead, it is limited by the number of people in the workforce. Furthermore, the white-collar industry can grow independent of the blue-collar industry, which is also a modification from the traditional predator population.
+\end{itemize}
 
 
 \section{Results}
@@ -241,6 +258,11 @@ does appear to reach an equilibrium (see figure~\ref{fig:results_lur_5}).
 \end{figure}
 
 
+\subsection{White-Collar and Blue-Collar Analysis}
+
+Here are some initial guesses for population dynamics. If we ignore other job categories, we can assume that blue collar jobs is 
+~70 percent (https://www.minneapolisfed.org/article/2015/the-parttime-blues-white-collar-versus-blue-collar-jobs) of all jobs.
+
 
 \section{Analysis/Conclusions}
 
@@ -253,6 +275,15 @@ With initial conditions that represented a larger than average unemployed popula
 similar equilibrium as the previous model (see figure~\ref{fig:results_lur_2}).
 Finally, when presented with initial populations that were flipped, the model still stabilized to the same equilibrium
 (see figure~\ref{fig:results_lur_3}).
+
+Despite the strengths of our model, there are some weaknesses present, too. One weakness is that
+changing the initial conditions can cause the results to differ significantly between each other results during the first few years.
+While it is true that the solutions end up reaching similar values as $T$ grows, those first few years of difference can pose a problem.
+
+One additional problem, which is the most significant, is that this model only considers how the labor markets interact
+with each other. One major factor in the labor market is how the economy is, and our model does not take that into account.
+Thus, one improvement that can be made is finding a way to include present economic condit
+Some of the weaknesses of our models (initial conditions cause different results in )
 
 While harder to see with the scale on the graph, the retired population does increase over time. 
 This is because, as the population grows, more people retire and we see a slow but steady growth, as expected.
