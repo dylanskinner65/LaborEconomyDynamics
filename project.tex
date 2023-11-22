@@ -178,9 +178,10 @@ where
     \item $\rho$: Growth rate of blue-collar jobs
     \item $a$: Rate at which people switch from blue collar to white collar jobs
     \item $\mu$: Decay rate of white-collar jobs
-    \item $\epsilon$: Efficiency of white-collar jobs in utilizing blue-collar jobs
+    \item $\varepsilon$: Efficiency of white-collar jobs in utilizing blue-collar jobs
     \item $k$: Carrying capacity for blue-collar jobs
     \item $C$: Carrying capacity for white-collar jobs.
+    \item $\beta$: Growth rate of white-collar jobs
 \end{itemize}
 
 Thus, we can interpret the new additions to our model as:
@@ -279,13 +280,13 @@ does appear to reach an equilibrium (see figure~\ref{fig:results_lur_5}).
 
 For our white- and blue-collar model, we experimented with different hyperparameters to see how they affected the model. 
 
-In our first run of the model, we used parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$. As we see, the model oscilates
+In our first run of the model, we used parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. As we see, the model oscilates
 slightly in the beginning, and then settles into a stable equilibrium (see figure~\ref{fig:results_wb_1}). The initial conditions come from data on the US Labor marekt and percentage of workers in white-collar or blue-collar jobs~\cite{BLS}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=.8\textwidth]{figures/blue_vs_white2.png}
-    \caption{With the parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$, we can see that the model oscilates
+    \caption{With the parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$, we can see that the model oscilates
     slightly in the beginning, and then settles into a stable equilibrium. Zooming in between years $10-50$, we can see the oscillations more clearly.}
     \label{fig:results_wb_1}
 \end{figure}
@@ -299,8 +300,8 @@ slightly in the beginning, and then settles into a stable equilibrium (see figur
 
 While our model does settle into an equilibrium, we find it important to note that our model is not very stable.
 
-Consider two different sets of initial conditions, namely $rho = 7$, $a = 5$, $\mu = 2$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$ and 
-$rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$. Note that the only difference between these two initial conditions is
+Consider two different sets of initial conditions, namely $rho = 7$, $a = 5$, $\mu = 2$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$ and 
+$rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Note that the only difference between these two initial conditions is
 how $\mu$ differs by a $1$. Despite this, our model predicts completely different results (see figure~\ref{fig:results_wb_3}).
 
 \begin{figure}[h]
