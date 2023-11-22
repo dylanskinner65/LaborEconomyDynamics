@@ -160,7 +160,8 @@ The classical predator-prey model is given by the following equations:
     \end{split}
 \end{align}
 
-where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\varepsilon$ are parameters. We can adapt this model to fit our needs by defining the following:
+where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\varepsilon$ are parameters. 
+We can adapt this model to fit our needs by defining the following:
 
 \begin{align}
     \begin{split}
@@ -169,7 +170,21 @@ where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a
     \end{split}
 \end{align}
 
-where $x$ is the blue-collar population, and $y$ is the white-collar population. We introduce the following terms into our model.
+where 
+
+\begin{itemize}
+    \item $x$: blue-collar population
+    \item $y$: white-collar population
+    \item $\rho$: Growth rate of blue-collar jobs
+    \item $a$: Rate at which people switch from blue collar to white collar jobs
+    \item $\mu$: Decay rate of white-collar jobs
+    \item $\epsilon$: Efficiency of white-collar jobs in utilizing blue-collar jobs
+    \item $k$: Carrying capacity for blue-collar jobs
+    \item $C$: Carrying capacity for white-collar jobs.
+\end{itemize}
+
+Thus, we can interpret the new additions to our model as:
+
 \begin{itemize}
     \item $\rho x (1-\frac{x}{k})$: This term adds a carrying capacity to the ``prey'' population (or blue collar population). This is because, while the blue-collar industry is growing, it is not growing at an exponential rate. Instead, it is growing at a rate that is proportional to the number of blue-collar workers.
     \item $\beta y (1-\frac{y}{C})$: This term adds a carrying capacity to the ``predator'' population (or white collar population). This is because the white-collar industry, unlike a traditional predator, cannot grow indefinitely. Instead, it is limited by the number of people in the workforce. Furthermore, the white-collar industry can grow independent of the blue-collar industry, which is also a modification from the traditional predator population.
@@ -177,6 +192,8 @@ where $x$ is the blue-collar population, and $y$ is the white-collar population.
 
 
 \section{Results}
+
+\subsection{Labor Force, Unemployement, and Retirement Analysis}
 
 We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
 
@@ -235,7 +252,7 @@ people in the labor force and unemployed combined. We then ran the model for 60 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/results_lur_4.png}
+    \includegraphics[width=.8\textwidth]{figures/results_lur_4.png}
     \caption{Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.}
     \label{fig:results_lur_4}
 \end{figure}
@@ -249,7 +266,7 @@ does appear to reach an equilibrium (see figure~\ref{fig:results_lur_5}).
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/results_lur_5.png}
+    \includegraphics[width=.8\textwidth]{figures/results_lur_5.png}
     \caption{While there are two sets of graphs here, they use the same initial conditions.
             The only difference is how long the model was ran for. The top graph was ran for $T = 100$ years, and 
             the bottom graph was ran for $T = 400$ years.
@@ -260,9 +277,40 @@ does appear to reach an equilibrium (see figure~\ref{fig:results_lur_5}).
 
 \subsection{White-Collar and Blue-Collar Analysis}
 
-Here are some initial guesses for population dynamics. If we ignore other job categories, we can assume that blue collar jobs is 
-~70 percent (https://www.minneapolisfed.org/article/2015/the-parttime-blues-white-collar-versus-blue-collar-jobs) of all jobs.
+For our white- and blue-collar model, we experimented with different hyperparameters to see how they affected the model. 
 
+In our first run of the model, we used parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$. As we see, the model oscilates
+slightly in the beginning, and then settles into a stable equilibrium (see figure~\ref{fig:results_wb_1}). The initial conditions come from data on the US Labor marekt and percentage of workers in white-collar or blue-collar jobs~\cite{BLS}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\textwidth]{figures/blue_vs_white2.png}
+    \caption{With the parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$, we can see that the model oscilates
+    slightly in the beginning, and then settles into a stable equilibrium. Zooming in between years $10-50$, we can see the oscillations more clearly.}
+    \label{fig:results_wb_1}
+\end{figure}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=.5\textwidth]{figures/blue_vs_white_zoomed.png}
+%     \caption{Highlighting the oscillations between years $10$ and $50$.}
+%     \label{fig:results_wb_2}
+% \end{figure}
+
+While our model does settle into an equilibrium, we find it important to note that our model is not very stable.
+
+Consider two different sets of initial conditions, namely $rho = 7$, $a = 5$, $\mu = 2$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$ and 
+$rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $e = 1$, $C = 1.5$. Note that the only difference between these two initial conditions is
+how $\mu$ differs by a $1$. Despite this, our model predicts completely different results (see figure~\ref{fig:results_wb_3}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\textwidth]{figures/bad_paramenters.png}
+    \caption{The left graph corresponds to $\mu = 2$, while the right graph corresponds to $\varepsilon = .2$, others parameters are kept the same.}
+    \label{fig:results_wb_3}
+\end{figure}
+
+Thus, our model is very sensitive to perturbations of initial conditions and requires further improvements.
 
 \section{Analysis/Conclusions}
 
@@ -286,6 +334,18 @@ Thus, one improvement that can be made is finding a way to include present econo
 
 While harder to see with the scale on the graph, the retired population does increase over time. 
 This is because, as the population grows, more people retire and we see a slow but steady growth, as expected.
+
+The white-collar and blue-collar model, while not as robust as the labor force model, still shows some interesting results. It is interesting to see how the relationships in the model
+caused oscillations in the different populations. The oscialltions are small enough that they are not visible on the graph, but they are still present, and can mimic the overall 
+labor force where a swing of thousands of jobs is noticed by the economy as a whole. A strength of this second model is exactly that, being able to see the oscillations while
+keeping the oscillations to a scale that would be realistic in the real world.
+
+However, the model is not without its weaknesses. The model is very sensitive to changes in the hyperparameters, and even a small change can cause the model to behave very differently. We see
+in figure~\ref{fig:results_wb_3} that a change of $1$ in $\mu$ causes the populations to entirely flip. Additionally, changing epsilon from $.2$ to $1$ causes 
+the white-collar population to swing wildly and see booms and busts equating to almost 100 million jobs. That massive of a swing is not realstic and not very useful for real world application.
+
+Overall, these models of the labor force show interesting results, especially the SIR model for modeling the stability of the labor force. The predator-prey model for the white-collar and blue-collar
+industries is wildly unstable, but when given proper hyperparamers demonstrates an interesting relationship between the two industries.
 
 
 % Rest of your document goes here
