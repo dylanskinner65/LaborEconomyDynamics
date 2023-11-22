@@ -156,23 +156,23 @@ The classical predator-prey model is given by the following equations:
 \begin{align}
     \begin{split}
         \frac{dx}{dt} &= \rho x - a x y, \\
-        \frac{dy}{dt} &= -\mu y + \epsilon a x y,
+        \frac{dy}{dt} &= -\mu y + \varepsilon a x y,
     \end{split}
 \end{align}
 
-where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\epsilon$ are parameters. We can adapt this model to fit our needs by defining the following:
+where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\varepsilon$ are parameters. We can adapt this model to fit our needs by defining the following:
 
 \begin{align}
     \begin{split}
-        \frac{dx}{dt} &= \rho x (1-\frac{x}{k}) - a x y, \\
-        \frac{dy}{dt} &= -\mu y + \epsilon a x y + \beta y (1-\frac{y}{C}),
+        \frac{dx}{dt} &= \rho x \left(1-\frac{x}{k}\right) - a x y, \\
+        \frac{dy}{dt} &= -\mu y + \varepsilon a x y + \beta y \left(1-\frac{y}{C}\right),
     \end{split}
 \end{align}
 
 where $x$ is the blue-collar population, and $y$ is the white-collar population. We introduce the following terms into our model.
 \begin{itemize}
-    \item $\rho x (1-\frac{x}{k})$: This term adds a carrying capacity to the "prey" population (or blue collar population). This is because, while the blue-collar industry is growing, it is not growing at an exponential rate. Instead, it is growing at a rate that is proportional to the number of blue-collar workers.
-    \item $\beta y (1-\frac{y}{C})$: This term adds a carrying capacity to the "predator" population (or white collar population). This is because the white-collar industry, unlike a traditional predator, cannot grow indefinitely. Instead, it is limited by the number of people in the workforce. Furthermore, the white-collar industry can grow independent of the blue-collar industry, which is also a modification from the traditional predator population.
+    \item $\rho x (1-\frac{x}{k})$: This term adds a carrying capacity to the ``prey'' population (or blue collar population). This is because, while the blue-collar industry is growing, it is not growing at an exponential rate. Instead, it is growing at a rate that is proportional to the number of blue-collar workers.
+    \item $\beta y (1-\frac{y}{C})$: This term adds a carrying capacity to the ``predator'' population (or white collar population). This is because the white-collar industry, unlike a traditional predator, cannot grow indefinitely. Instead, it is limited by the number of people in the workforce. Furthermore, the white-collar industry can grow independent of the blue-collar industry, which is also a modification from the traditional predator population.
 \end{itemize}
 
 
@@ -181,12 +181,12 @@ where $x$ is the blue-collar population, and $y$ is the white-collar population.
 We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
 
 \begin{itemize}
-    \item $\sigma = 0.013905$: We derived this value by analyzing comprehensive data on total layoffs and discharges in the United States from 2000 to 2023, as documented by the Federal Reserve Economic Data (FRED) \cite{FRED}. The calculated average resulted in $\sigma = 0.013905$.
-    \item $\rho = 0.014577$: The maximum growth rate, denoted as $\rho$, was determined by examining an Excel spreadsheet provided by MacroTrends \cite{MacroTrends}. After averaging the growth rates from 2000 to 2022, we incorporated three standard deviations to arrive at $\rho = 0.014577$.
-    \item $\gamma = 0.6062$: The average employment rate from 2000 to 2022, obtained from the Bureau of Labor Statistics \cite{BLS}, led to the computation of $\gamma = 0.6062$.
-    \item $\mu = 0.008498$: Derived from an analysis of mortality data from 2000 to 2022 \cite{usafacts}, the mortality rate was calculated by taking the average number of deaths per 100,000 people. This resulted in $\mu = 0.008498$.
-    \item $N_c = 260,000,000$: The population of individuals aged 18 and above in the United States in 2022 was calculated to be $260,000,000$, as reported by Kids Count \cite{kidscount}.
-    \item $\Sigma = 775,045$: The annual number of retirees in the United States, determined by examining Social Security Administration data from 2000 to 2021 \cite{ssa}, was calculated using the formula:
+    \item $\sigma = 0.013905$: We derived this value by analyzing comprehensive data on total layoffs and discharges in the United States from 2000 to 2023, as documented by the Federal Reserve Economic Data (FRED)~\cite{FRED}. The calculated average resulted in $\sigma = 0.013905$.
+    \item $\rho = 0.014577$: The maximum growth rate, denoted as $\rho$, was determined by examining an Excel spreadsheet provided by MacroTrends~\cite{MacroTrends}. After averaging the growth rates from 2000 to 2022, we incorporated three standard deviations to arrive at $\rho = 0.014577$.
+    \item $\gamma = 0.6062$: The average employment rate from 2000 to 2022, obtained from the Bureau of Labor Statistics~\cite{BLS}, led to the computation of $\gamma = 0.6062$.
+    \item $\mu = 0.008498$: Derived from an analysis of mortality data from 2000 to 2022~\cite{usafacts}, the mortality rate was calculated by taking the average number of deaths per 100,000 people. This resulted in $\mu = 0.008498$.
+    \item $N_c = 260,000,000$: The population of individuals aged 18 and above in the United States in 2022 was calculated to be $260,000,000$, as reported by Kids Count~\cite{kidscount}.
+    \item $\Sigma = 775,045$: The annual number of retirees in the United States, determined by examining Social Security Administration data from 2000 to 2021~\cite{ssa}, was calculated using the formula:
     \[
         \Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})
     \]
