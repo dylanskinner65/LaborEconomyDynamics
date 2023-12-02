@@ -126,7 +126,7 @@ This is because, instead of factoring in people when they are born, we are inste
 in when they turn of working age (16). This reduces unnecessary complexity in our model. Another thing to note
 is that we have added two new parameters, $\omega$ and $\Sigma$. We define $\Sigma$ to be the number of people who
 retire each year in the United States, and $\omega$ to be the rate at which retired people enter back
-into the full-time workforce. We can then define our new initial conditions as:
+into the full-time workforce (which is a dimensionless constant). We can then define our new initial conditions as:
 
 \begin{align}
     \begin{split}
@@ -139,7 +139,7 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
 \begin{itemize}
     \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: This term captures the dynamic interplay of individuals retiring from the workforce each time step. By leveraging $\Sigma$, the annual number of retirees, and $L + U$, the total workforce population, we calculate the percentage of individuals retiring at each time step. Multiplying this by $L$, the number of individuals actively engaged in the workforce, yields the precise count of those retiring, excluding unemployed individuals due to their non-participation in this realistic scenario.
 
-    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: This term accounts for individuals retiring and subsequently re-entering the workforce. The parameter $\omega$ denotes the rate at which retired individuals seamlessly transition back to full-time work. By multiplying $\omega R$—the expected number of retired individuals returning to the workforce—by $\frac{\Sigma}{L + U}$, we ascertain the percentage of recent retirees contributing to the workforce each time step.
+    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: This term accounts for individuals retiring and subsequently re-entering the workforce. The dimensionless constant $\omega$ denotes the rate at which retired individuals seamlessly transition back to full-time work. By multiplying $\omega R$—the expected number of retired individuals returning to the workforce—by $\frac{\Sigma}{L + U}$, we ascertain the percentage of recent retirees contributing to the workforce each time step.
 
     \item $-\mu R$: This term represents the natural attrition of retired individuals through mortality each time step. Its presence acknowledges the inevitable and inherent departure of individuals from the system due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
 \end{itemize}
