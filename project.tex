@@ -105,7 +105,7 @@ We can then define our new equations as
 
 \begin{align}
     \begin{split}
-        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\;- \left(\frac{\Sigma}{L + U}\right) L + \omega\left(\frac{\Sigma}{L + U}\right) R},\\
+        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\;- \left(\frac{\Sigma}{L + U}\right) L + \omega\left(\frac{\Sigma}{L + U}\right) R + \rho R},\\
         \frac{dU}{dt} &= \rho\left(1 - \frac{L + U}{N_c} \right)L + \sigma L -(\mu + \gamma)U,  \\
         \frac{dR}{dt} &= {\color{red}\left(\frac{\Sigma}{L + U}\right) L - \omega\left(\frac{\Sigma}{L + U}\right) R \; - \, \mu R},
     \end{split}
@@ -115,7 +115,7 @@ which simplify to
 
 \begin{align}
     \begin{split}
-        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\; + \;(\omega R - L)\left(\frac{\Sigma}{L + U}\right)},\\
+        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\; + \;(\omega R - L)\left(\frac{\Sigma}{L + U}\right) + \rho R},\\
         \frac{dU}{dt} &= \rho\left(1 - \frac{L + U}{N_c} \right)L_{\tau} + \sigma L -(\mu + \gamma)U  \\
         \frac{dR}{dt} &= {\color{red}(L - \omega R)\left(\frac{\Sigma}{L + U}\right) \; - \, \mu R}.
     \end{split}
@@ -136,13 +136,26 @@ into the full-time workforce (which is a dimensionless constant). We can then de
 \end{align}
 where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nuanced dynamics into our model, we introduce the following terms and elucidate their significance within the equations:
 
+% \begin{itemize}
+%     \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: This term captures the dynamic interplay of individuals retiring from the workforce each time step. By leveraging $\Sigma$, the annual number of retirees, and $L + U$, the total workforce population, we calculate the percentage of individuals retiring at each time step. Multiplying this by $L$, the number of individuals actively engaged in the workforce, yields the precise count of those retiring, excluding unemployed individuals due to their non-participation in this realistic scenario.
+
+%     \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: This term accounts for individuals retiring and subsequently re-entering the workforce. The dimensionless constant $\omega$ denotes the rate at which retired individuals seamlessly transition back to full-time work. By multiplying $\omega R$—the expected number of retired individuals returning to the workforce—by $\frac{\Sigma}{L + U}$, we ascertain the percentage of recent retirees contributing to the workforce each time step.
+    
+%     \item $\rho R$: This term represents the natural growth of jobs, proportional to the number of employed people. If the number of employed people is increasing, we assume the economy is doing well, so there will be new jobs created.
+
+%     \item $-\mu R$: This term represents the natural attrition of retired individuals through mortality each time step. Its presence acknowledges the inevitable and inherent departure of individuals from the system due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
+% \end{itemize}
+
 \begin{itemize}
-    \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: This term captures the dynamic interplay of individuals retiring from the workforce each time step. By leveraging $\Sigma$, the annual number of retirees, and $L + U$, the total workforce population, we calculate the percentage of individuals retiring at each time step. Multiplying this by $L$, the number of individuals actively engaged in the workforce, yields the precise count of those retiring, excluding unemployed individuals due to their non-participation in this realistic scenario.
+    \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: Captures the dynamic interplay of individuals retiring from the workforce at each time step. The term considers the annual number of retirees ($\Sigma$) in relation to the total workforce population ($L + U$), calculating the percentage of individuals retiring and multiplying by the number of individuals actively engaged in the workforce ($L$), excluding unemployed individuals.
 
-    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: This term accounts for individuals retiring and subsequently re-entering the workforce. The dimensionless constant $\omega$ denotes the rate at which retired individuals seamlessly transition back to full-time work. By multiplying $\omega R$—the expected number of retired individuals returning to the workforce—by $\frac{\Sigma}{L + U}$, we ascertain the percentage of recent retirees contributing to the workforce each time step.
+    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: Accounts for individuals retiring and re-entering the workforce. The dimensionless constant $\omega$ denotes the rate at which retired individuals transition back to full-time work. The term calculates the expected number of retired individuals returning to the workforce.
 
-    \item $-\mu R$: This term represents the natural attrition of retired individuals through mortality each time step. Its presence acknowledges the inevitable and inherent departure of individuals from the system due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
+    \item $\rho R$: Represents the natural growth of jobs, proportional to the number of employed people. Assumes economic well-being and the creation of new jobs.
+
+    \item $-\mu R$: Represents the natural attrition of retired individuals through mortality at each time step. Acknowledges the inevitable departure of individuals due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
 \end{itemize}
+
 
 \subsection{Modifications: The White-Collar and Blue-Collar Groups}
 
@@ -301,7 +314,7 @@ slightly in the beginning, and then settles into a stable equilibrium (see figur
 While our model does settle into an equilibrium, we find it important to note that our model is not very stable.
 
 Consider two different sets of initial conditions, namely $rho = 7$, $a = 5$, $\mu = 2$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$ and 
-$rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Note that the only difference between these two initial conditions is
+$\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Note that the only difference between these two initial conditions is
 how $\mu$ differs by a $1$. Despite this, our model predicts completely different results (see figure~\ref{fig:results_wb_3}).
 
 \begin{figure}[h]
