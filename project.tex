@@ -21,7 +21,7 @@
 
 \begin{abstract}
     
-    The labor market, including the unemployment rate and the amount of workers looking for jobs, can have a large impact on the economny.
+    The labor market, including the unemployment rate and the amount of workers looking for jobs, can have a large impact on the economy.
     The more people employed means more money being spent, which in turn means more money being made. 
     Furthermore, rise in unemployment can lead to a recession. Being able to predict the labor market can help us prepare for a recession and help us understand the economy better.
     In this paper, we adapt an SIR model to characterize the dynamics of employed, unemployed, and retired individuals in the labor market. 
@@ -41,24 +41,32 @@ One thing that is certain in life is that people will always need jobs. Not only
 will often lose their jobs. Furthermore, people will (eventually) retire from their jobs.
 The focus of our project is modeling this situation.
 
-Our investigation navigates the intricate dynamics of employment trajectories and occupational sectors. 
-Employing the SIR (Susceptible-Infectious-Recovered) model, typically used for disease dynamics but adapted 
-here to study employment dynamics, we aim to comprehend the propagation of employment statuses—specifically, 
+## CHANGE ##
+In recent studies exploring the complexities of employment trajectories and occupational sectors, researchers 
+have employed various modeling approaches such as Agent-Based Modeling~\cite{neves2019innovation}, and Markov Chains~\cite{zais2016markov}. However, 
+in a departure from conventional methodologies, our investigation takes an innovative turn by adapting 
+the SIR (Susceptible-Infectious-Recovered) model~\cite{kermack1927contribution}, typically utilized for studying disease dynamics, to the 
+realm of employment dynamics. This unique application aims to unravel the intricate propagation of employment 
+statuses, specifically delving into the transitions between being employed, unemployed, and retired.
+
+By employing the SIR model, we aim to comprehend the propagation of employment statuses—specifically, 
 the transitions between being employed, unemployed, and retired. A discernible trend has emerged in recent times, 
 notably influenced by the technological revolution. The surge in interest and demand for tech-oriented careers 
 has prompted a significant shift away from traditional blue-collar professions. This migration has led to a 
 dual challenge: a scarcity of skilled workers in the blue-collar sector and an oversaturation of the tech 
-industry. Our study extends beyond the conventional SIR model, incorporating elements of a quasi-predator-prey 
-framework inspired by ecological models. This approach allows us to capture the nuanced relationship between 
-the blue-collar and white-collar industries, offering insights into the cyclical dynamics between these sectors. 
+industry~\cite{SHRMBlueCollarDrought}. To capture this relationship between white and blue collar jobs, we incorporate elements of a quasi-predator-prey 
+framework inspired by ecological models, which offers insights into the cyclical dynamics between these sectors. 
+
 Motivated by the imperative to comprehend and address the consequences of this evolving employment landscape, 
-our research aims to contribute valuable insights for informing strategic policies and industry interventions.
+our research aims to contribute valuable insights for informing strategic policies and industry interventions. 
+By synthesizing the strengths of both the predator-prey framework and the SIR model, we aspire to provide a 
+comprehensive understanding of the intricate dynamics shaping the contemporary employment scenario.
 
 \section{Modeling}
 
 \subsection{Theoretical Framework}
 
-The Susceptible-Infectious-Recovered (SIR) model, developed by Kermack and McKendrick in 1927, 
+The Susceptible-Infectious-Recovered (SIR) model, developed by Kermack and McKendrick in 1927~\cite{kermack1927contribution}, 
 is a foundational mathematical framework for understanding the spread of infectious diseases in populations. 
 It divides individuals into susceptible, infectious, and recovered compartments, capturing the dynamics of disease transmission.
 In our model, we adapt the SIR model to represent the dynamics of the employment market through the labor force,
@@ -105,7 +113,7 @@ We can then define our new equations as
 
 \begin{align}
     \begin{split}
-        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\;- \left(\frac{\Sigma}{L + U}\right) L + \omega\left(\frac{\Sigma}{L + U}\right) R + \rho R},\\
+        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\;- \left(\frac{\Sigma}{L + U}\right) L + \omega\left(\frac{\Sigma}{L + U}\right) R + \rho L},\\
         \frac{dU}{dt} &= \rho\left(1 - \frac{L + U}{N_c} \right)L + \sigma L -(\mu + \gamma)U,  \\
         \frac{dR}{dt} &= {\color{red}\left(\frac{\Sigma}{L + U}\right) L - \omega\left(\frac{\Sigma}{L + U}\right) R \; - \, \mu R},
     \end{split}
@@ -115,15 +123,16 @@ which simplify to
 
 \begin{align}
     \begin{split}
-        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\; + \;(\omega R - L)\left(\frac{\Sigma}{L + U}\right) + \rho R},\\
-        \frac{dU}{dt} &= \rho\left(1 - \frac{L + U}{N_c} \right)L_{\tau} + \sigma L -(\mu + \gamma)U  \\
+        \frac{dL}{dt} &= \gamma U - (\sigma + \mu)L {\color{red}\; + \;(\omega R - L)\left(\frac{\Sigma}{L + U}\right) + \rho L},\\
+        \frac{dU}{dt} &= \rho\left(1 - \frac{L + U}{N_c} \right)L + \sigma L -(\mu + \gamma)U  \\
         \frac{dR}{dt} &= {\color{red}(L - \omega R)\left(\frac{\Sigma}{L + U}\right) \; - \, \mu R}.
     \end{split}
 \end{align}
 
 One of the first things to note from our equations is the removal of the time lag $\tau$. 
 This is because, instead of factoring in people when they are born, we are instead factoring them
-in when they turn of working age (16). This reduces unnecessary complexity in our model. Another thing to note
+in when they turn of working age (16). This reduces unnecessary complexity in our model. Additionally, we make two assumptions about unemployed people, being they will
+neither retire directly from looking for work, nor contribute to the growth of the population. A final thing to note
 is that we have added two new parameters, $\omega$ and $\Sigma$. We define $\Sigma$ to be the number of people who
 retire each year in the United States, and $\omega$ to be the rate at which retired people enter back
 into the full-time workforce (which is a dimensionless constant). We can then define our new initial conditions as:
@@ -151,7 +160,7 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
 
     \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: Accounts for individuals retiring and re-entering the workforce. The dimensionless constant $\omega$ denotes the rate at which retired individuals transition back to full-time work. The term calculates the expected number of retired individuals returning to the workforce.
 
-    \item $\rho R$: Represents the natural growth of jobs, proportional to the number of employed people. Assumes economic well-being and the creation of new jobs.
+    \item $\rho L$: Represents the natural growth of jobs, proportional to the number of employed people. Assumes economic well-being and the creation of new jobs.
 
     \item $-\mu R$: Represents the natural attrition of retired individuals through mortality at each time step. Acknowledges the inevitable departure of individuals due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
 \end{itemize}
@@ -162,7 +171,17 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
 We can further model the labor market by examining the relationship between two industries, commonly referred to as the white-collar and blue-collar industries.
 In recent years, we have seen an explosion of jobs and interest in the white-collar field, specifically in the tech industry, while the blue-collar industry has seen a decline in interest.
 This has led to an oversaturation of the white-collar industry and a scarcity of skilled workers in the blue-collar industry, which in turn has slowed growth in the white-collar industry and led to increased growth in the blue-collar industry.
-This cyclical relationship mirrors that of a predator-prey relationship, and we can model it as such.
+This cyclical relationship mirrors that of a predator-prey relationship, and we can model it as such. 
+
+## CHANGE ##
+Choosing a predator-prey model to represent blue-collar and white-collar jobs is justified by its ability to capture dynamic interactions and 
+cyclic behavior between the two job categories. This modeling approach incorporates feedback loops, reflecting the influence each job type has 
+on the other, and naturally represents population dynamics in response to economic, educational, or technological factors. 
+Beyond its quantitative merits, the predator-prey model provides qualitative insights into the coexistence and competition between 
+blue-collar and white-collar jobs, making it a valuable tool for educational purposes and effective communication. 
+Additionally, the model's adaptability allows for the inclusion of additional factors, offering flexibility in addressing 
+the multifaceted dynamics of the labor market. This choice opens avenues for research and exploration of hypothetical scenarios, 
+providing a structured framework to analyze and understand the interplay between different job categories over time.
 
 The classical predator-prey model is given by the following equations:
 
@@ -191,7 +210,7 @@ where
     \item $\rho$: Growth rate of blue-collar jobs
     \item $a$: Rate at which people switch from blue collar to white collar jobs
     \item $\mu$: Decay rate of white-collar jobs
-    \item $\varepsilon$: Efficiency of white-collar jobs in utilizing blue-collar jobs
+    \item $\varepsilon$: The rate at which new job growth in converting from blue-collar to white-collar jobs
     \item $k$: Carrying capacity for blue-collar jobs
     \item $C$: Carrying capacity for white-collar jobs.
     \item $\beta$: Growth rate of white-collar jobs
@@ -204,10 +223,12 @@ Thus, we can interpret the new additions to our model as:
     \item $\beta y (1-\frac{y}{C})$: This term adds a carrying capacity to the ``predator'' population (or white collar population). This is because the white-collar industry, unlike a traditional predator, cannot grow indefinitely. Instead, it is limited by the number of people in the workforce. Furthermore, the white-collar industry can grow independent of the blue-collar industry, which is also a modification from the traditional predator population.
 \end{itemize}
 
+The reason that only white-collar jobs at a decay rate is meant to model the current market situation. The white-collar market is becoming
+oversaturated so as it gets a higher population it decays, whereas the blue-collar market has not reached this point and never does with the initial conditions given.
+We also made the assumption that the white-collar market converts whereas the blue-collar market does not, this was a modeling choice to model the specific
+circumstance we wanted to attempt to model, in the real world, this could go both ways with varying degrees, but for simplification we made it only one way.
 
-\section{Results}
-
-\subsection{Labor Force, Unemployement, and Retirement Analysis}
+\subsection{Labor Force, Unemployement, and Retirement Simulations}
 
 We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
 
@@ -288,8 +309,7 @@ does appear to reach an equilibrium (see figure~\ref{fig:results_lur_5}).
     \label{fig:results_lur_5}
 \end{figure}
 
-
-\subsection{White-Collar and Blue-Collar Analysis}
+\subsection{White-Collar and Blue-Collar Simulations}
 
 For our white- and blue-collar model, we experimented with different hyperparameters to see how they affected the model. 
 
@@ -311,9 +331,8 @@ slightly in the beginning, and then settles into a stable equilibrium (see figur
 %     \label{fig:results_wb_2}
 % \end{figure}
 
-While our model does settle into an equilibrium, we find it important to note that our model is not very stable.
 
-Consider two different sets of initial conditions, namely $rho = 7$, $a = 5$, $\mu = 2$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$ and 
+Consider two different sets of initial conditions, namely $\rho = 7$, $a = 5$, $\mu = 2$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$ and 
 $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Note that the only difference between these two initial conditions is
 how $\mu$ differs by a $1$. Despite this, our model predicts completely different results (see figure~\ref{fig:results_wb_3}).
 
@@ -324,7 +343,39 @@ how $\mu$ differs by a $1$. Despite this, our model predicts completely differen
     \label{fig:results_wb_3}
 \end{figure}
 
-Thus, our model is very sensitive to perturbations of initial conditions and requires further improvements.
+\section{Results}
+The blend of SIR and predator-prey models in the context of employment dynamics offers a comprehensive framework for understanding 
+the complex interactions within the labor market. Here are some key observations and conclusions drawn from the presented model:
+
+SIR Model for Employment Dynamics:
+
+The adaptation of the SIR model to employment dynamics, considering transitions between being employed, unemployed, and retired, 
+showcases the versatility of mathematical models in capturing real-world phenomena beyond their original design for infectious 
+disease spread. 
+
+The introduction of a retirement group and associated dynamics adds realism to the model. The inclusion of retirees, 
+their re-entry into the workforce, and natural attrition due to mortality provides a more nuanced representation of employment 
+trajectories over time.
+
+The model exhibits a degree of sensitivity to initial conditions. Even when the labor market starts with extreme conditions 
+(e.g., a high number of retired individuals compared to the working population), the model tends to converge to an equilibrium 
+state over an extended period, highlighting the resilience and adaptive nature of the labor market.
+
+Predator-Prey Model for White-Collar and Blue-Collar Dynamics:
+
+The choice of a predator-prey model to represent the dynamics between white-collar and blue-collar industries is justified 
+by its ability to capture cyclic behavior and feedback loops observed in the labor market. The model demonstrates the ebb 
+and flow between these sectors, with one influencing the other in a cyclical manner.
+
+The white-collar and blue-collar model is sensitive to changes in parameters, as seen in the different outcomes resulting from 
+variations in parameters such as $\mu$. This sensitivity underscores the importance of careful calibration and validation of 
+model parameters based on real-world data to ensure meaningful and reliable predictions.
+
+Equilibrium and Stability:
+
+In both the SIR-based employment model and the white-collar/blue-collar predator-prey model, equilibrium states are observed. 
+The labor market tends to stabilize over time, indicating that the model captures the inherent dynamics of employment, retirement, 
+and sectoral shifts, allowing for the identification of long-term trends.
 
 \section{Analysis/Conclusions}
 
@@ -338,6 +389,16 @@ similar equilibrium as the previous model (see figure~\ref{fig:results_lur_2}).
 Finally, when presented with initial populations that were flipped, the model still stabilized to the same equilibrium
 (see figure~\ref{fig:results_lur_3}).
 
+## CHANGE ##
+In our model, modified from ElFadily et. al.~\cite{ElFadily}, we have extended their classical SIR framework, traditionally 
+used to understand the spread of infectious diseases, to capture the dynamics of the labor market. In our adaptation, 
+we introduced an additional compartment for Retired (R) individuals, reflecting the life cycle of employment. The key 
+modifications involve incorporating terms that represent the natural attrition of the retired population, their re-entry into 
+the workforce, and the growth of job opportunities proportional to the number of employed individuals. These adjustments provide 
+a nuanced representation of the labor market's temporal evolution, accounting for retirement dynamics, mortality, and the cyclical 
+nature of job creation and re-entry. This enhanced model allows for a more comprehensive understanding of the complex interactions 
+within the labor market over time.
+
 Despite the strengths of our model, there are some weaknesses present, too. One weakness is that
 changing the initial conditions can cause the results to differ significantly between each other results during the first few years.
 While it is true that the solutions end up reaching similar values as $T$ grows, those first few years of difference can pose a problem.
@@ -350,7 +411,7 @@ While harder to see with the scale on the graph, the retired population does inc
 This is because, as the population grows, more people retire and we see a slow but steady growth, as expected.
 
 The white-collar and blue-collar model, while not as robust as the labor force model, still shows some interesting results. It is interesting to see how the relationships in the model
-caused oscillations in the different populations. The oscialltions are small enough that they are not visible on the graph, but they are still present, and can mimic the overall 
+caused oscillations in the different populations. The oscillations are small enough that they are not visible on the graph, but they are still present, and can mimic the overall 
 labor force where a swing of thousands of jobs is noticed by the economy as a whole. A strength of this second model is exactly that, being able to see the oscillations while
 keeping the oscillations to a scale that would be realistic in the real world.
 
@@ -360,6 +421,14 @@ the white-collar population to swing wildly and see booms and busts equating to 
 
 Overall, these models of the labor force show interesting results, especially the SIR model for modeling the stability of the labor force. The predator-prey model for the white-collar and blue-collar
 industries is wildly unstable, but when given proper hyperparamers demonstrates an interesting relationship between the two industries.
+
+## CHANGE ##
+By incorporating retirement dynamics and job market interactions, the model provides insights into the long-term stability and equilibrium of the workforce. 
+The inclusion of retirement-related terms allows policymakers and economists to analyze the impact of demographic shifts on employment trends and anticipate 
+workforce fluctuations. Moreover, the explicit consideration of job creation and re-entry mechanisms offers a more realistic representation of economic dynamics, 
+enabling better predictions of labor market behavior. Understanding the cyclical nature of job opportunities and retiree contributions provides valuable insights 
+for economic planning, workforce management, and policy development. This modified SIR model, by bridging epidemiological principles with labor market dynamics, 
+contributes to a holistic framework for studying the interplay between demographic factors and economic trends, supporting informed decision-making in the real world.
 
 
 % Rest of your document goes here
