@@ -152,14 +152,15 @@ where $\varphi_i\in C([-\tau, 0], \mathbb{R}^+),\;\; i=1,2,3$. Incorporating nua
 % \end{itemize}
 
 \begin{itemize}
-    \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: Captures the dynamic interplay of individuals retiring from the workforce at each time step. The term considers the annual number of retirees ($\Sigma$) in relation to the total workforce population ($L + U$), calculating the percentage of individuals retiring and multiplying by the number of individuals actively engaged in the workforce ($L$), excluding unemployed individuals.
+    \item $\pm\left(\frac{\Sigma}{L + U}\right) L$: Captures retirements relative to the total workforce, considering the annual number of retirees ($\Sigma$) as a percentage of the employed population ($L$).
 
-    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: Accounts for individuals retiring and re-entering the workforce. The dimensionless constant $\omega$ denotes the rate at which retired individuals transition back to full-time work. The term calculates the expected number of retired individuals returning to the workforce.
+    \item $\pm \omega\left(\frac{\Sigma}{L + U}\right) R$: Models retired individuals re-entering the workforce, with $\omega$ representing the transition rate.
 
-    \item $\rho L$: Represents the natural growth of jobs, proportional to the number of employed people. Assumes economic well-being and the creation of new jobs.
+    \item $\rho L$: Represents natural job growth, proportional to the employed population.
 
-    \item $-\mu R$: Represents the natural attrition of retired individuals through mortality at each time step. Acknowledges the inevitable departure of individuals due to mortality, contributing to a comprehensive understanding of the model's temporal evolution.
+    \item $-\mu R$: Represents the natural attrition of retired individuals due to mortality at each time step.
 \end{itemize}
+
 
 
 \subsection{Modifications: The White-Collar and Blue-Collar Groups}
@@ -218,9 +219,10 @@ where
 Thus, we can interpret the new additions to our model as:
 
 \begin{itemize}
-    \item $\rho x (1-\frac{x}{k})$: This term adds a carrying capacity to the ``prey'' population (or blue collar population). This is because, while the blue-collar industry is growing, it is not growing at an exponential rate. Instead, it is growing at a rate that is proportional to the number of blue-collar workers.
-    \item $\beta y (1-\frac{y}{C})$: This term adds a carrying capacity to the ``predator'' population (or white collar population). This is because the white-collar industry, unlike a traditional predator, cannot grow indefinitely. Instead, it is limited by the number of people in the workforce. Furthermore, the white-collar industry can grow independent of the blue-collar industry, which is also a modification from the traditional predator population.
+    \item $\rho x (1-\frac{x}{k})$: Carrying capacity term for the blue-collar (prey) population, reflecting growth proportional to the number of blue-collar workers.
+    \item $\beta y (1-\frac{y}{C})$: Carrying capacity term for the white-collar (predator) population, constrained by the workforce size and capable of independent growth.
 \end{itemize}
+
 
 The reason that only white-collar jobs at a decay rate is meant to model the current market situation. The white-collar market is becoming
 oversaturated so as it gets a higher population it decays, whereas the blue-collar market has not reached this point and never does with the initial conditions given.
@@ -231,22 +233,35 @@ circumstance we wanted to attempt to model, in the real world, this could go bot
 
 We now give the specific values for hyperparameters for our model and how we came to those values. We define the following:
 
+% \begin{itemize}
+%     \item $\sigma = 0.013905$: We derived this value by analyzing comprehensive data on total layoffs and discharges in the United States from 2000 to 2023, as documented by the Federal Reserve Economic Data (FRED)~\cite{FRED}. The calculated average resulted in $\sigma = 0.013905$.
+%     \item $\rho = 0.014577$: The maximum growth rate, denoted as $\rho$, was determined by examining an Excel spreadsheet provided by MacroTrends~\cite{MacroTrends}. After averaging the growth rates from 2000 to 2022, we incorporated three standard deviations to arrive at $\rho = 0.014577$.
+%     \item $\gamma = 0.6062$: The average employment rate from 2000 to 2022, obtained from the Bureau of Labor Statistics~\cite{BLS}, led to the computation of $\gamma = 0.6062$.
+%     \item $\mu = 0.008498$: Derived from an analysis of mortality data from 2000 to 2022~\cite{usafacts}, the mortality rate was calculated by taking the average number of deaths per 100,000 people. This resulted in $\mu = 0.008498$.
+%     \item $N_c = 260,000,000$: The population of individuals aged 18 and above in the United States in 2022 was calculated to be $260,000,000$, as reported by Kids Count~\cite{kidscount}.
+%     \item $\Sigma = 775,045$: The annual number of retirees in the United States, determined by examining Social Security Administration data from 2000 to 2021~\cite{ssa}, was calculated using the formula:
+%     \[
+%         \Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})
+%     \]
+%     where $x_i$ is the number of retirees in year $i$. This resulted in $\Sigma = 775,045$.
+%     \item $\omega = 0.063$: The rate at which retired individuals re-enter the full-time workforce, denoted as $\omega$, was identified as 6.3\% or $0.063$ based on research by Maestas \cite{maestas}, resulting in $\omega = 0.063$.
+% \end{itemize}
+
 \begin{itemize}
-    \item $\sigma = 0.013905$: We derived this value by analyzing comprehensive data on total layoffs and discharges in the United States from 2000 to 2023, as documented by the Federal Reserve Economic Data (FRED)~\cite{FRED}. The calculated average resulted in $\sigma = 0.013905$.
-    \item $\rho = 0.014577$: The maximum growth rate, denoted as $\rho$, was determined by examining an Excel spreadsheet provided by MacroTrends~\cite{MacroTrends}. After averaging the growth rates from 2000 to 2022, we incorporated three standard deviations to arrive at $\rho = 0.014577$.
-    \item $\gamma = 0.6062$: The average employment rate from 2000 to 2022, obtained from the Bureau of Labor Statistics~\cite{BLS}, led to the computation of $\gamma = 0.6062$.
-    \item $\mu = 0.008498$: Derived from an analysis of mortality data from 2000 to 2022~\cite{usafacts}, the mortality rate was calculated by taking the average number of deaths per 100,000 people. This resulted in $\mu = 0.008498$.
-    \item $N_c = 260,000,000$: The population of individuals aged 18 and above in the United States in 2022 was calculated to be $260,000,000$, as reported by Kids Count~\cite{kidscount}.
-    \item $\Sigma = 775,045$: The annual number of retirees in the United States, determined by examining Social Security Administration data from 2000 to 2021~\cite{ssa}, was calculated using the formula:
+    \item $\sigma = 0.013905$: Derived from comprehensive data on total layoffs and discharges in the United States (2000-2023)~\cite{FRED}.
+    \item $\rho = 0.014577$: Maximum growth rate calculated from MacroTrends Excel data (2000-2022)~\cite{MacroTrends}.
+    \item $\gamma = 0.6062$: Employment rate average (2000-2022) from the Bureau of Labor Statistics~\cite{BLS}.
+    \item $\mu = 0.008498$: Mortality rate derived from 2000-2022 mortality data~\cite{usafacts}.
+    \item $N_c = 260,000,000$: Population of individuals aged 18 and above in the United States in 2022~\cite{kidscount}.
+    \item $\Sigma = 775,045$: Annual retirees in the U.S. (2000-2021) using Social Security Administration data~\cite{ssa}, calculated by
     \[
         \Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})
     \]
-    where $x_i$ is the number of retirees in year $i$. This resulted in $\Sigma = 775,045$.
-    \item $\omega = 0.063$: The rate at which retired individuals re-enter the full-time workforce, denoted as $\omega$, was identified as 6.3\% or $0.063$ based on research by Maestas \cite{maestas}, resulting in $\omega = 0.063$.
+    \item $\omega = 0.063$: Rate at which retirees re-enter the workforce based on research by Maestas~\cite{maestas}.
 \end{itemize}
 
-We began testing our model by running it for 60 years with the current numbers for the United States (see figure~\ref{fig:results_lur_1}). As you can see,
-the model very quickly reaches what appears to be an equilibrium. Additionally, we can see the total population grow as time goes on, reflecting the expected population growth of the United States.
+
+We began testing our model by running it for 60 years with the current numbers for the United States (see figure~\ref{fig:results_lur_1}). 
 
 \begin{figure}[h]
     \centering

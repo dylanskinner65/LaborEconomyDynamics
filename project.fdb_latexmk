@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex project"] 1701979509 "project.aux" "project.bbl" "project" 1701979611
+["bibtex project"] 1701981260 "project.aux" "project.bbl" "project" 1701981277
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "bibliography.bib" 1701976557 7270 4a8946366ac848cab7fa3a831c98d295 ""
-  "project.aux" 1701979611 5642 3c2186c992da63b48b5adadd17e164da "pdflatex"
+  "project.aux" 1701981277 5642 362ebe17a4074872202a29c8eb93d3d5 "pdflatex"
   (generated)
   "project.bbl"
   "project.blg"
-["pdflatex"] 1701979609 "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" "project.pdf" "project" 1701979611
-  "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" 1701979608 27694 00b7336af17e5304586ca9bac8e4ab26 ""
+["pdflatex"] 1701981275 "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" "project.pdf" "project" 1701981277
+  "/Users/dylanskinner/Desktop/ACME_Projects/Volume4_project/project.tex" 1701981257 27421 2b81f9c9f6838f6ad4ac2785c27c4045 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -136,10 +136,10 @@
   "figures/results_lur_3.png" 1700335005 143326 204c2bd43f06629dba50ae987d8fc2cd ""
   "figures/results_lur_4.png" 1700335998 137599 d208c28cc2550fc4a223f3d6c30dda3c ""
   "figures/results_lur_5.png" 1700339092 301203 a097fc5fe28e60502657c7a96acfff2a ""
-  "project.aux" 1701979611 5642 3c2186c992da63b48b5adadd17e164da "pdflatex"
-  "project.bbl" 1701979509 3031 31e04ca2aab847afe3b59f9a5fa81cbb "bibtex project"
-  "project.out" 1701979611 2269 00d35c72092762c6270faf2720f5e470 "pdflatex"
-  "project.tex" 1701979608 27694 00b7336af17e5304586ca9bac8e4ab26 ""
+  "project.aux" 1701981277 5642 362ebe17a4074872202a29c8eb93d3d5 "pdflatex"
+  "project.bbl" 1701981260 3031 31e04ca2aab847afe3b59f9a5fa81cbb "bibtex project"
+  "project.out" 1701981277 2269 00d35c72092762c6270faf2720f5e470 "pdflatex"
+  "project.tex" 1701981257 27421 2b81f9c9f6838f6ad4ac2785c27c4045 ""
   (generated)
   "project.aux"
   "project.log"
