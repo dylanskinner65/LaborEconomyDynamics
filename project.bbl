@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{kidscount}
 {Annie E. Casey Foundation}.
@@ -19,6 +19,12 @@ Michele Cal{\`\i}, Sanaa ElFadily, and Abdelilah Kaddar.
 \newblock \url{https://fred.stlouisfed.org/series/JTSLDR}, Accessed 2023.
 \newblock Data retrieved from the Federal Reserve Economic Data (FRED) website.
 
+\bibitem{kermack1927contribution}
+W.~O. Kermack and A.~G. McKendrick.
+\newblock A contribution to the mathematical theory of epidemics.
+\newblock {\em Proceedings of the Royal Society of London. Series A, Containing
+  Papers of a Mathematical and Physical Character}, 115(772):700--721, 1927.
+
 \bibitem{MacroTrends}
 {MacroTrends LLC}.
 \newblock {MacroTrends}.
@@ -31,6 +37,12 @@ Michele Cal{\`\i}, Sanaa ElFadily, and Abdelilah Kaddar.
 Nicole Maestas.
 \newblock Back to work: Expectations and realizations of work after retirement.
 \newblock {\em Journal of Human Resources}, 45(3):718--748, 2010.
+
+\bibitem{neves2019innovation}
+Fábio Neves, Pedro Campos, and Sandra Silva.
+\newblock Innovation and employment: An agent-based approach.
+\newblock {\em Journal of Artificial Societies and Social Simulation}, 22(1):8,
+  2019.
 
 \bibitem{ssa}
 {Social Security Administration}.
@@ -53,5 +65,16 @@ Nicole Maestas.
   \url{https://usafacts.org/data/topics/people-society/health/longevity/mortality-rate/},
   Accessed 2023.
 \newblock Data retrieved from USAFacts website.
+
+\bibitem{SHRMBlueCollarDrought}
+Dana Wilkie.
+\newblock The blue-collar drought, 2019.
+\newblock Accessed: 7 December 2023.
+
+\bibitem{zais2016markov}
+Mark Zais and Dan Zhang.
+\newblock A markov chain model of military personnel dynamics.
+\newblock {\em International Journal of Production Research}, 54(6):1863--1885,
+  2016.
 
 \end{thebibliography}
