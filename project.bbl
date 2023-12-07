@@ -5,7 +5,7 @@
 \newblock {KIDS COUNT Data Center}.
 \newblock
   \url{https://datacenter.aecf.org/data/tables/99-total-population-by-child-and-adult-populations#detailed/1/any/false/1095,2048,574,1729,37,871,870,573,869,36/39,40,41/416,417},
-  Accessed 2023.
+  2023.
 \newblock Data retrieved from KIDS COUNT Data Center website.
 
 \bibitem{ElFadily}
@@ -13,10 +13,18 @@ Michele Cal{\`\i}, Sanaa ElFadily, and Abdelilah Kaddar.
 \newblock Modeling and mathematical analysis of labor force evolution.
 \newblock {\em Modelling and Simulation in Engineering}, 2019:2562468, 2019.
 
+\bibitem{SHRMBlueCollarDrought}
+{Dana Wilkie}.
+\newblock {The Blue-Collar Drought}.
+\newblock
+  \url{https://www.shrm.org/hr-today/news/all-things-work/pages/the-blue-collar-drought.aspx},
+  2023.
+\newblock Accessed: 7 December 2023.
+
 \bibitem{FRED}
 {Federal Reserve Bank of St. Louis}.
 \newblock {Federal Reserve Economic Data}.
-\newblock \url{https://fred.stlouisfed.org/series/JTSLDR}, Accessed 2023.
+\newblock \url{https://fred.stlouisfed.org/series/JTSLDR}, 2023.
 \newblock Data retrieved from the Federal Reserve Economic Data (FRED) website.
 
 \bibitem{kermack1927contribution}
@@ -30,7 +38,7 @@ W.~O. Kermack and A.~G. McKendrick.
 \newblock {MacroTrends}.
 \newblock
   \url{https://www.macrotrends.net/countries/USA/united-states/population-growth-rate},
-  Accessed 2023.
+  2023.
 \newblock Data retrieved from MacroTrends website.
 
 \bibitem{maestas}
@@ -48,14 +56,14 @@ Fábio Neves, Pedro Campos, and Sandra Silva.
 {Social Security Administration}.
 \newblock {Number of beneficiaries receiving benefits on December 31,
   1970-2022}.
-\newblock \url{https://www.ssa.gov/oact/STATS/OASDIbenies.html}, Accessed 2023.
+\newblock \url{https://www.ssa.gov/oact/STATS/OASDIbenies.html}, 2023.
 \newblock Data retrieved from Social Security Administration website.
 
 \bibitem{BLS}
 {U.S. Bureau of Labor Statistics}.
 \newblock {HOUSEHOLD DATA ANNUAL AVERAGES 1. Employment status of the civilian
   noninstitutional population, 1952 to date}.
-\newblock \url{https://www.bls.gov/cps/cpsaat01.pdf}, Accessed 2023.
+\newblock \url{https://www.bls.gov/cps/cpsaat01.pdf}, 2023.
 \newblock Data retrieved from the Bureau of Labor Statistics website.
 
 \bibitem{usafacts}
@@ -63,13 +71,8 @@ Fábio Neves, Pedro Campos, and Sandra Silva.
 \newblock {Deaths Per 100,000 People}.
 \newblock
   \url{https://usafacts.org/data/topics/people-society/health/longevity/mortality-rate/},
-  Accessed 2023.
+  2023.
 \newblock Data retrieved from USAFacts website.
-
-\bibitem{SHRMBlueCollarDrought}
-Dana Wilkie.
-\newblock The blue-collar drought, 2019.
-\newblock Accessed: 7 December 2023.
 
 \bibitem{zais2016markov}
 Mark Zais and Dan Zhang.
