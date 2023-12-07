@@ -33,6 +33,12 @@ W.~O. Kermack and A.~G. McKendrick.
 \newblock {\em Proceedings of the Royal Society of London. Series A, Containing
   Papers of a Mathematical and Physical Character}, 115(772):700--721, 1927.
 
+\bibitem{lotka1925elements}
+Alfred~J. Lotka.
+\newblock Elements of physical biology.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America}, 14(8):659–664, 1925.
+
 \bibitem{MacroTrends}
 {MacroTrends LLC}.
 \newblock {MacroTrends}.
@@ -73,6 +79,11 @@ Fábio Neves, Pedro Campos, and Sandra Silva.
   \url{https://usafacts.org/data/topics/people-society/health/longevity/mortality-rate/},
   2023.
 \newblock Data retrieved from USAFacts website.
+
+\bibitem{volterra1926fluctuations}
+Vito Volterra.
+\newblock Fluctuations in the abundance of a species considered mathematically.
+\newblock {\em Nature}, 118(2972):558–560, 1926.
 
 \bibitem{zais2016markov}
 Mark Zais and Dan Zhang.
