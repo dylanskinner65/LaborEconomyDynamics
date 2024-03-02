@@ -174,22 +174,128 @@ $$\Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})$$
 
 * $\omega = 0.063$: Rate at which retirees re-enter the workforce based on research by Maestas~\cite{maestas}.
 
-We began testing our model by running it for 60 years with the current numbers for the United States (see figure~\ref{fig:results_lur_1}). 
+We began testing our model by running it for 60 years with the current numbers for the United States (see <a href='#figure1'>figure 1</a>). 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.8\textwidth]{figures/results_lur_1.png}
-    \caption{Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$.}
-    \label{fig:results_lur_1}
-\end{figure}
+<figure>
+  <img src="figures/results_lur_1.png" alt="Figure1." width="90%" height="90%" id="figure1">
+  <figcaption text-align=center><b>Figure 1:</b> Initial conditions: $L(0) = 157,000,000$, $U(0) = 6,500,000$, $R(0) = 48,590,000$.</figcaption>
+</figure>
 
 To test the robustness of our model, we ran it with different initial conditions that do not represent the current situation in the United States. 
 We first decreased the number in the labor force, increased the number of unemployed, and decreased the number of retired. We made these changes rather conservative
-by only slightly perturbing the real numbers. We then ran the model for 60 years (see figure~\ref{fig:results_lur_2}).
-Parallel to figure 1, we can see that the model still reaches an equilibrium despite the initial conditions being skewed from their true values.
+by only slightly perturbing the real numbers. We then ran the model for 60 years (see <a href='#figure2'>figure 2</a>).
+Parallel to <a href='#figure1'>figure 1</a>, we can see that the model still reaches an equilibrium despite the initial conditions being skewed from their true values.
 
 <figure>
-  <img src="blog_files/slice_surface_genus/Figure6.png" alt="Slice Surfaces." width="90%" height="90%" id="figure6">
-  <figcaption text-align=center><b>Figure 6:</b> The left most part of this figure is the surface inside $\mathbb{R}^3$. 
-                                By taking level sets of this surface, we can obtain an accurate representation of the surface.</figcaption>
+  <img src="figures/results_lur_2.png" alt="Figure2." width="90%" height="90%" id="figure2">
+  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 100,000,000$, $U(0) = 50,000,000$, $R(0) = 10,000,000$.</figcaption>
 </figure>
+
+
+We ran our model, once again, against a different set of initial conditions. This time, we significantly decreased the number of people in the occupied
+labor force, significantly increased the number of unemployed (ensuring that the number of unemployed was much greater than the number of people in the labor force), and moderately decreased the number of retired. We then ran the model for 60 years (see <a href='#figure3'>figure 3</a>).
+As you can see, the model still reaches an equilibrium, despite the initial conditions being heavily skewed from their true values.
+
+<figure>
+  <img src="figures/results_lur_3.png" alt="Figure3." width="90%" height="90%" id="figure3">
+  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$.</figcaption>
+</figure>
+
+We ran a final test, this time having the number of retired people set as greater than the number of
+people in the labor force and unemployed combined. We then ran the model for 60 years (see <a href='#figure4'>figure 4</a>).
+
+<figure>
+  <img src="figures/results_lur_4.png" alt="Figure4." width="90%" height="90%" id="figure4">
+  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.</figcaption>
+</figure>
+
+Unlike the previous graphs, we can see that the model does not reach an equilibrium in 60 years. 
+While the number of people in the labor force rises and the number of retired people falls, 
+this change does not appear to be significant enough to reach an equilibrium. However,
+when ran again for $T = 100$ years, we can see that the model gets closer to an equilibrium, but 
+still does not reach one (see <a href='#figure5'>figure 5</a>).
+
+<figure>
+  <img src="figures/results_lur_5.png" alt="Figure5." width="90%" height="90%" id="figure5">
+  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.</figcaption>
+</figure>
+
+### White-Collar and Blue-Collar Simulations
+
+
+For our white- and blue-collar model, we experimented with different hyperparameters to see how they would affect the model. 
+
+In our first run of the model, we used parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. As we see, the model oscilates
+slightly in the beginning, and then settles into a stable equilibrium (see figure~\ref{fig:results_wb_1}). The initial conditions come from data on the US Labor market and percentage of workers in white-collar or blue-collar jobs~\cite{BLS}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\textwidth]{figures/blue_vs_white2.png}
+    \caption{Parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Zooming in between years $10-50$, we can see the oscillations more clearly.}
+    \label{fig:results_wb_1}
+\end{figure}
+
+
+Consider now a new set of initial conditions, namely $\rho = 7$, $a = 5$, $\mu=2$ $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$, and the same set with $\mu=1$.
+Despite only the slight change of $\mu$ by $1$, our model predicts completely different results (see figure~\ref{fig:results_wb_3}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\textwidth]{figures/bad_paramenters.png}
+    \caption{The left graph corresponds to $\mu = 2$, while the right graph corresponds to $\mu = 1$, others parameters are kept the same.}
+    \label{fig:results_wb_3}
+\end{figure}
+
+\section{Results}
+The SIR and predator-prey models in the context of employment dynamics offers a comprehensive framework for understanding 
+the complex interactions within the labor market. Here are some key observations and conclusions drawn from the presented models:
+
+Overall, our SIR model of the labor market shows remarkable stability. 
+We can see that, regardless of the initial conditions, the model reaches an equilibrium, 
+with the number of employed, unemployed, and retired individuals remaining relatively constant.
+When we used initial conditions that reflected the current numbers for the United States,
+the model saw relatively little change as time went on (see figure~\ref{fig:results_lur_1}).
+With initial conditions that represented a larger than average unemployed population, the model corrected itself and reached a
+similar equilibrium as the previous model (see figure~\ref{fig:results_lur_2}).
+Finally, when presented with initial populations that were flipped, the model still stabilized to the same equilibrium
+(see figure~\ref{fig:results_lur_3}).
+
+The predator-prey model is very sensitive to changes in the hyperparameters as even a small change can cause the model to behave very 
+differently. We see in figure~\ref{fig:results_wb_3} that a change of $1$ in $\mu$ causes the populations to entirely flip. 
+This model, while not as robust as the SIR labor force model, still shows some interesting results. It is interesting to see how the relationships in the model
+caused oscillations in the different populations. The oscillations are small enough that they are not visible on the graph, but they are still present, and can mimic the overall 
+labor force where a swing of thousands of jobs is noticed by the economy as a whole (see figure~\ref{fig:results_wb_1}). 
+A strength of this second model is exactly that, being able to see the oscillations while keeping the oscillations to a scale that would be realistic in the real world.
+
+
+\section{Analysis/Conclusions}
+
+In our model, modified from ElFadily et. al.~\cite{ElFadily}, we have extended their adapted SIR framework to capture more interesting dynamics of the labor market. 
+In our adaptation, 
+we introduced an additional compartment for Retired $(R)$ individuals, reflecting the life cycle of employment. The key 
+modifications involve incorporating terms that represent the natural attrition of the retired population, their potential re-entry into 
+the workforce, and the growth of job opportunities proportional to the number of employed individuals. These adjustments provide 
+a nuanced representation of the labor market's temporal evolution, accounting for retirement dynamics, mortality, and the cyclical 
+nature of job creation and re-entry. This enhanced model allows for a more comprehensive understanding of the complex interactions 
+within the labor market over time.
+
+Despite the strengths of our SIR model, there are weaknesses present. One weakness is that changing the initial conditions can cause 
+the results to differ significantly between each other during the first few years. While it is true that the solutions 
+end up reaching similar values as $T$ grows, those first few years of difference can pose a problem. Another more significant 
+weakness is that this model only considers how the labor markets interact with each other. One major factor in the labor market 
+is the current state of the economy, and our model does not take that into account. Thus, one improvement that can be made is finding a way to 
+include present economic conditions.
+
+The predator-prey model, while not as robust as the SIR model, still shows some exciting results. 
+It is interesting to see how the relationships in the model cause oscillations between the different populations. 
+The oscillations are small enough that they are not visible on the graph, but they are still present, and can mimic the overall labor force.
+However, this second model is very unstable and requires several large simplifications. This model fails to be a accurate representation of the labor market, 
+and does little else other than show small oscillations. Given more time, we would have loved to expand on this idea and come up with a stable robust model that 
+can illustrate the oscillations between the white-collar and blue-collar industries.
+
+Despite its weaknesses, our models provide insights into the long-term stability and equilibrium of the workforce. 
+The inclusion of retirement-related terms allows policymakers and economists to analyze the impact of demographic shifts on employment trends and anticipate 
+workforce fluctuations. Moreover, the explicit consideration of job creation and re-entry mechanisms offers a more realistic representation of economic dynamics, 
+enabling better predictions of labor market behavior. Understanding the cyclical nature of job opportunities and retiree contributions provides valuable insights 
+for economic planning, workforce management, and policy development. This modified SIR model, by bridging epidemiological principles with labor market dynamics, 
+contributes to a holistic framework for studying the interplay between demographic factors and economic trends, supporting informed decision-making in the real world.
