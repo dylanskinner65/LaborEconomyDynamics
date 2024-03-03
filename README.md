@@ -18,9 +18,9 @@ will often lose their jobs. Furthermore, people will (eventually) retire from th
 The focus of our project is modeling this situation.
 
 In recent studies exploring the complexities of employment trajectories and occupational sectors, researchers 
-have employed various modeling approaches such as Agent-Based Modeling~\cite{neves2019innovation}, and Markov Chains~\cite{zais2016markov}. However, 
+have employed various modeling approaches such as Agent-Based Modeling <a href='#9'>[9]</a>, and Markov Chains <a href='#14'>[14]</a>. However, 
 in a departure from conventional methodologies, our investigation takes an innovative turn by adapting 
-the SIR (Susceptible-Infectious-Recovered) model~\cite{kermack1927contribution}, typically utilized for studying disease dynamics, to the 
+the SIR (Susceptible-Infectious-Recovered) model <a href='#5'>[5]</a>, typically utilized for studying disease dynamics, to the 
 realm of employment dynamics. This unique application aims to unravel the intricate propagation of employment 
 statuses, specifically delving into the transitions between being employed, unemployed, and retired.
 
@@ -28,7 +28,7 @@ A discernible trend has emerged in recent times,
 notably influenced by the technological revolution. The surge in interest and demand for tech-oriented careers 
 has prompted a significant shift away from traditional blue-collar professions. This migration has led to a 
 dual challenge: a scarcity of skilled workers in the blue-collar sector and an oversaturation of the tech 
-industry~\cite{SHRMBlueCollarDrought}. To capture this relationship between white and blue collar jobs, we also create a quasi-predator-prey 
+industry <a href='#3'>[3]</a>. To capture this relationship between white and blue collar jobs, we also create a quasi-predator-prey 
 framework inspired by ecological models, which offers insights into the cyclical dynamics between these sectors. 
 
 Motivated by the imperative to comprehend and address the consequences of this evolving employment landscape, 
@@ -40,7 +40,7 @@ comprehensive understanding of the intricate dynamics shaping the contemporary e
 
 ### Theoretical Framework
 
-The Susceptible-Infectious-Recovered (SIR) model, developed by Kermack and McKendrick in 1927~\cite{kermack1927contribution}, 
+The Susceptible-Infectious-Recovered (SIR) model, developed by Kermack and McKendrick in 1927 <a href='#5'>[5]</a>, 
 is a foundational mathematical framework for understanding the spread of infectious diseases in populations. 
 It divides individuals into susceptible, infectious, and recovered compartments, capturing the dynamics of disease transmission.
 In our model, we adapt the SIR model to represent the dynamics of the employment market through the labor force,
@@ -48,7 +48,7 @@ unemployed, and retired populations.
 
 ### Previous Work
 
-We begin by building off the work of ElFadily et. al.~\cite{ElFadily}. In their work, ElFadily et. al. proposed a model
+We begin by building off the work of ElFadily et. al. <a href='#2'>[2]</a>. In their work, ElFadily et. al. proposed a model
  representing the labor force and unemployed populations. They begin by defining their equations as
 
 $$\frac{dL}{dt} = \gamma U - (\sigma + \mu)L, \quad \frac{dU}{dt} = \rho \left(1 - \frac{L_{\tau} + U_{\tau}}{N_c} \right)L_{\tau} + \sigma L - (\gamma + \mu)U,$$
@@ -133,7 +133,7 @@ The classical predator-prey model is given by the following equations:
 
 $$ \frac{dx}{dt} = \rho x - a x y, \quad \frac{dy}{dt} = -\mu y + \varepsilon a x y.$$
 
-where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\varepsilon$ are parameters~\cite{lotka1925elements}~\cite{volterra1926fluctuations}. 
+where $x$ is the prey population, $y$ is the predator population, and $\rho$, $a$, $\mu$, and $\varepsilon$ are parameters <a href='#6'>[6]</a> <a href='#13'>[13]</a>. 
 We can adapt this model by defining the following:
 
 $$\frac{dx}{dt} = \rho x {\color{red}\left(1-\frac{x}{k}\right)} - a x y, \quad \frac{dy}{dt} = -\mu y + \varepsilon a x y + {\color{red} \beta y \left(1-\frac{y}{C}\right)}.$$
@@ -163,16 +163,16 @@ circumstance we attempt to analyze. In the real world, this could go both ways w
 ### Labor Force, Unemployement, and Retirement Simulations
 
 
-* $\sigma = 0.013905$: Derived from comprehensive data on total layoffs and discharges in the United States (2000-2023)~\cite{FRED}.
-* $\rho = 0.014577$: Maximum growth rate calculated from MacroTrends Excel data (2000-2022)~\cite{MacroTrends}.
-* $\gamma = 0.6062$: Employment rate average (2000-2022) from the Bureau of Labor Statistics~\cite{BLS}.
-* $\mu = 0.008498$: Mortality rate derived from 2000-2022 mortality data~\cite{usafacts}.
-* $N_c = 260,000,000$: Population of individuals aged 16 and above in the United States in 2022~\cite{kidscount}.
-* $\Sigma = 775,045$: Annual retirees in the U.S. (2000-2021) using Social Security Administration data~\cite{ssa}, calculated by
+* $\sigma = 0.013905$: Derived from comprehensive data on total layoffs and discharges in the United States (2000-2023) <a href='#4'>[4]</a>.
+* $\rho = 0.014577$: Maximum growth rate calculated from MacroTrends Excel data (2000-2022) <a href='#7'>[7]</a>.
+* $\gamma = 0.6062$: Employment rate average (2000-2022) from the Bureau of Labor Statistics <a href='#11'>[11]</a>.
+* $\mu = 0.008498$: Mortality rate derived from 2000-2022 mortality data <a href='#12'>[12]</a>.
+* $N_c = 260,000,000$: Population of individuals aged 16 and above in the United States in 2022 <a href='#1'>[1]</a>.
+* $\Sigma = 775,045$: Annual retirees in the U.S. (2000-2021) using Social Security Administration data <a href='#10'>[10]</a>, calculated by
 
 $$\Sigma = \frac{1}{2021 - 2001}\sum_{i=2001}^{2021}(x_i - x_{i-1})$$
 
-* $\omega = 0.063$: Rate at which retirees re-enter the workforce based on research by Maestas~\cite{maestas}.
+* $\omega = 0.063$: Rate at which retirees re-enter the workforce based on research by Maestas <a href='#8'>[8]</a>.
 
 We began testing our model by running it for 60 years with the current numbers for the United States (see <a href='#figure1'>figure 1</a>). 
 
@@ -198,7 +198,7 @@ As you can see, the model still reaches an equilibrium, despite the initial cond
 
 <figure>
   <img src="figures/results_lur_3.png" alt="Figure3." width="90%" height="90%" id="figure3">
-  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$.</figcaption>
+  <figcaption text-align=center><b>Figure 3:</b> Initial conditions: $L(0) = 18,000,000$, $U(0) = 200,000,000$, $R(0) = 10,000,000$.</figcaption>
 </figure>
 
 We ran a final test, this time having the number of retired people set as greater than the number of
@@ -206,7 +206,7 @@ people in the labor force and unemployed combined. We then ran the model for 60 
 
 <figure>
   <img src="figures/results_lur_4.png" alt="Figure4." width="90%" height="90%" id="figure4">
-  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.</figcaption>
+  <figcaption text-align=center><b>Figure 4:</b> Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.</figcaption>
 </figure>
 
 Unlike the previous graphs, we can see that the model does not reach an equilibrium in 60 years. 
@@ -217,7 +217,7 @@ still does not reach one (see <a href='#figure5'>figure 5</a>).
 
 <figure>
   <img src="figures/results_lur_5.png" alt="Figure5." width="90%" height="90%" id="figure5">
-  <figcaption text-align=center><b>Figure 2:</b> Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.</figcaption>
+  <figcaption text-align=center><b>Figure 5:</b> Initial conditions: $L(0) = 17,500,000$, $U(0) = 20,400,000$, $R(0) = 195,000,000$.</figcaption>
 </figure>
 
 ### White-Collar and Blue-Collar Simulations
@@ -226,27 +226,23 @@ still does not reach one (see <a href='#figure5'>figure 5</a>).
 For our white- and blue-collar model, we experimented with different hyperparameters to see how they would affect the model. 
 
 In our first run of the model, we used parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. As we see, the model oscilates
-slightly in the beginning, and then settles into a stable equilibrium (see figure~\ref{fig:results_wb_1}). The initial conditions come from data on the US Labor market and percentage of workers in white-collar or blue-collar jobs~\cite{BLS}.
+slightly in the beginning, and then settles into a stable equilibrium (see <a href='#figure6'>figure 6</a>). The initial conditions come from data on the US Labor market and percentage of workers in white-collar or blue-collar jobs <a href='#11'>[11]</a>.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.8\textwidth]{figures/blue_vs_white2.png}
-    \caption{Parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Zooming in between years $10-50$, we can see the oscillations more clearly.}
-    \label{fig:results_wb_1}
-\end{figure}
+<figure>
+  <img src="figures/blue_vs_white2.png" alt="Figure6." width="90%" height="90%" id="figure6">
+  <figcaption text-align=center><b>Figure 6:</b> Parameters $\rho = 7$, $a = 5$, $\mu = 1$, $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$. Zooming in between years $10-50$, we can see the oscillations more clearly.</figcaption>
+</figure>
 
 
 Consider now a new set of initial conditions, namely $\rho = 7$, $a = 5$, $\mu=2$ $\varepsilon = .2$, $k = 3$, $\beta = 1$, $C = 1.5$, and the same set with $\mu=1$.
-Despite only the slight change of $\mu$ by $1$, our model predicts completely different results (see figure~\ref{fig:results_wb_3}).
+Despite only the slight change of $\mu$ by $1$, our model predicts completely different results (see <a href='#figure7'>figure 7</a>).
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.8\textwidth]{figures/bad_paramenters.png}
-    \caption{The left graph corresponds to $\mu = 2$, while the right graph corresponds to $\mu = 1$, others parameters are kept the same.}
-    \label{fig:results_wb_3}
-\end{figure}
+<figure>
+  <img src="figures/bad_paramenters.png" alt="Figure7." width="90%" height="90%" id="figure7">
+  <figcaption text-align=center><b>Figure 7:</b> The left graph corresponds to $\mu = 2$, while the right graph corresponds to $\mu = 1$, others parameters are kept the same.</figcaption>
+</figure>
 
-\section{Results}
+## Results
 The SIR and predator-prey models in the context of employment dynamics offers a comprehensive framework for understanding 
 the complex interactions within the labor market. Here are some key observations and conclusions drawn from the presented models:
 
@@ -254,23 +250,22 @@ Overall, our SIR model of the labor market shows remarkable stability.
 We can see that, regardless of the initial conditions, the model reaches an equilibrium, 
 with the number of employed, unemployed, and retired individuals remaining relatively constant.
 When we used initial conditions that reflected the current numbers for the United States,
-the model saw relatively little change as time went on (see figure~\ref{fig:results_lur_1}).
+the model saw relatively little change as time went on (see <a href='#figure1'>figure 1</a>).
 With initial conditions that represented a larger than average unemployed population, the model corrected itself and reached a
-similar equilibrium as the previous model (see figure~\ref{fig:results_lur_2}).
+similar equilibrium as the previous model (see <a href='#figure2'>figure 2</a>).
 Finally, when presented with initial populations that were flipped, the model still stabilized to the same equilibrium
-(see figure~\ref{fig:results_lur_3}).
+(see <a href='#figure3'>figure 3</a>).
 
 The predator-prey model is very sensitive to changes in the hyperparameters as even a small change can cause the model to behave very 
-differently. We see in figure~\ref{fig:results_wb_3} that a change of $1$ in $\mu$ causes the populations to entirely flip. 
+differently. We see in <a href='#figure7'>figure 7</a> that a change of $1$ in $\mu$ causes the populations to entirely flip. 
 This model, while not as robust as the SIR labor force model, still shows some interesting results. It is interesting to see how the relationships in the model
 caused oscillations in the different populations. The oscillations are small enough that they are not visible on the graph, but they are still present, and can mimic the overall 
-labor force where a swing of thousands of jobs is noticed by the economy as a whole (see figure~\ref{fig:results_wb_1}). 
+labor force where a swing of thousands of jobs is noticed by the economy as a whole (see <a href='#figure6'>figure 6</a>). 
 A strength of this second model is exactly that, being able to see the oscillations while keeping the oscillations to a scale that would be realistic in the real world.
 
+## Analysis/Conclusions
 
-\section{Analysis/Conclusions}
-
-In our model, modified from ElFadily et. al.~\cite{ElFadily}, we have extended their adapted SIR framework to capture more interesting dynamics of the labor market. 
+In our model, modified from ElFadily et. al. <a href='#2'>[2]</a>, we have extended their adapted SIR framework to capture more interesting dynamics of the labor market. 
 In our adaptation, 
 we introduced an additional compartment for Retired $(R)$ individuals, reflecting the life cycle of employment. The key 
 modifications involve incorporating terms that represent the natural attrition of the retired population, their potential re-entry into 
@@ -299,3 +294,40 @@ workforce fluctuations. Moreover, the explicit consideration of job creation and
 enabling better predictions of labor market behavior. Understanding the cyclical nature of job opportunities and retiree contributions provides valuable insights 
 for economic planning, workforce management, and policy development. This modified SIR model, by bridging epidemiological principles with labor market dynamics, 
 contributes to a holistic framework for studying the interplay between demographic factors and economic trends, supporting informed decision-making in the real world.
+
+## References
+
+<a id='1'>[1]</a> Annie E. Casey Foundation. KIDS COUNT Data Center. https://datacenter.aecf.org/data/tables/99-total-population-by-child-and-adult-populations#detailed/1/any/false/1095,2048,574,1729,37,871,870,573,869,36/39,40,41/416,417, 2023. Data retrieved from KIDS
+COUNT Data Center website.
+
+<a id='2'>[2]</a> Michele Calì, Sanaa ElFadily, and Abdelilah Kaddar. Modeling and mathematical analysis of labor
+force evolution. Modelling and Simulation in Engineering, 2019:2562468, 2019.
+
+<a id='3'>[3]</a> Dana Wilkie. The Blue-Collar Drought. https://www.shrm.org/hr-today/news/all-things-work/pages/the-blue-collar-drought.aspx, 2023. Accessed: 7 December 2023.
+
+<a id='4'>[4]</a> Federal Reserve Bank of St. Louis. Federal Reserve Economic Data. https://fred.stlouisfed.org/series/JTSLDR, 2023. Data retrieved from the Federal Reserve Economic Data (FRED) website.
+
+<a id='5'>[5]</a> W. O. Kermack and A. G. McKendrick. A contribution to the mathematical theory of epidemics. Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character, 115(772):700–721, 1927.
+
+<a id='6'>[6]</a> Alfred J. Lotka. Elements of physical biology. Proceedings of the National Academy of Sciences of the
+United States of America, 14(8):659–664, 1925.
+
+<a id='7'>[7]</a> MacroTrends LLC. MacroTrends. https://www.macrotrends.net/countries/USA/united-states/population-growth-rate, 2023. Data retrieved from MacroTrends website.
+
+<a id='8'>[8]</a> Nicole Maestas. Back to work: Expectations and realizations of work after retirement. Journal of Human Resources, 45(3):718–748, 2010.
+
+<a id='9'>[9]</a> Fábio Neves, Pedro Campos, and Sandra Silva. Innovation and employment: An agent-based approach.
+Journal of Artificial Societies and Social Simulation, 22(1):8, 2019.
+
+<a id='10'>[10]</a> Social Security Administration. Number of beneficiaries receiving benefits on December 31, 1970-2022.
+https://www.ssa.gov/oact/STATS/OASDIbenies.html, 2023. Data retrieved from Social Security Administration website.
+
+<a id='11'>[11]</a> U.S. Bureau of Labor Statistics. HOUSEHOLD DATA ANNUAL AVERAGES 1. Employment status
+of the civilian noninstitutional population, 1952 to date. https://www.bls.gov/cps/cpsaat01.pdf,
+2023. Data retrieved from the Bureau of Labor Statistics website.
+
+<a id='12'>[12]</a> USAFacts. Deaths Per 100,000 People. https://usafacts.org/data/topics/people-society/health/longevity/mortality-rate/, 2023. Data retrieved from USAFacts website.
+
+<a id='13'>[13]</a> Vito Volterra. Fluctuations in the abundance of a species considered mathematically. Nature, 118(2972):558–560, 1926.
+
+<a id='14'>[14]</a> Mark Zais and Dan Zhang. A markov chain model of military personnel dynamics. InternationalJournal of Production Research, 54(6):1863–1885, 2016.
